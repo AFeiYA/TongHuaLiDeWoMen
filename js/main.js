@@ -143,6 +143,9 @@ document.querySelectorAll('.track-card').forEach((card) => {
   });
 });
 
+let currentPlayingId = null;
+const hiddenPlayer = document.getElementById('hiddenPlayerContainer');
+
 document.querySelectorAll('.track-card__front').forEach((front) => {
   front.addEventListener('click', () => {
     toggleCard(front);
@@ -160,6 +163,7 @@ function toggleCard(front) {
   const card = front.closest('.track-card');
   const detail = card.querySelector('.track-card__detail');
   const isOpen = front.getAttribute('aria-expanded') === 'true';
+  const trackId = parseInt(card.dataset.track, 10);
 
   // 关闭其他卡片
   document.querySelectorAll('.track-card__front[aria-expanded="true"]').forEach((otherFront) => {
@@ -172,9 +176,31 @@ function toggleCard(front) {
   if (isOpen) {
     front.setAttribute('aria-expanded', 'false');
     detail.hidden = true;
+    
+    // 收起当前卡片时，停止后台播放
+    if (currentPlayingId === trackId) {
+      if (hiddenPlayer) hiddenPlayer.innerHTML = '';
+      currentPlayingId = null;
+    }
   } else {
     front.setAttribute('aria-expanded', 'true');
     detail.hidden = false;
+
+    // 展开新卡片时，如果不是当前在播的歌，就启动后台自动播放（默认网易云音乐）
+    if (currentPlayingId !== trackId) {
+      if (hiddenPlayer && typeof TRACKS_CONFIG !== 'undefined') {
+        const trackData = TRACKS_CONFIG.tracks.find((t) => t.id === trackId);
+        if (trackData && trackData.neteaseId) {
+          hiddenPlayer.innerHTML = `<iframe src="https://music.163.com/outchain/player?type=2&id=${trackData.neteaseId}&auto=1&height=66" width="0" height="0" frameborder="no" border="0" marginwidth="0" marginheight="0"></iframe>`;
+          currentPlayingId = trackId;
+        } else {
+          // 如果没有网易云 ID，则清空播放器，停止之前的音乐
+          hiddenPlayer.innerHTML = '';
+          currentPlayingId = null;
+        }
+      }
+    }
+
     setTimeout(() => {
       card.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }, 150);
