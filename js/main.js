@@ -144,28 +144,13 @@ document.querySelectorAll('.track-card').forEach((card) => {
 });
 
 document.querySelectorAll('.track-card__front').forEach((front) => {
-  front.addEventListener('click', (e) => {
-    const card = front.closest('.track-card');
-    const trackId = parseInt(card.dataset.track, 10);
-    
-    // 如果当前没有播放这首歌，就播放网易云音乐
-    if (currentPlayingTrackId !== trackId) {
-      playTrack(trackId, 'netease');
-    }
-    
+  front.addEventListener('click', () => {
     toggleCard(front);
   });
   
   front.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
-      const card = front.closest('.track-card');
-      const trackId = parseInt(card.dataset.track, 10);
-      
-      if (currentPlayingTrackId !== trackId) {
-        playTrack(trackId, 'netease');
-      }
-      
       toggleCard(front);
     }
   });
@@ -194,101 +179,6 @@ function toggleCard(front) {
       card.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }, 150);
   }
-}
-
-/* ==========================================================================
-   4. 全局悬浮音乐播放器交互
-   ========================================================================== */
-const globalPlayer = document.getElementById('globalPlayer');
-const playerSongName = document.getElementById('playerSongName');
-const playerTheme = document.getElementById('playerTheme');
-const playerEmbedWrap = document.getElementById('playerEmbedWrap');
-const playerCloseBtn = document.getElementById('playerCloseBtn');
-
-let currentPlayingTrackId = null;
-let currentPlayingPlayer = null; // 'spotify' | 'netease'
-
-// 点击播放按钮
-document.querySelectorAll('.play-btn').forEach((btn) => {
-  btn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const card = btn.closest('.track-card');
-    const trackId = parseInt(card.dataset.track, 10);
-    const playerType = btn.dataset.player; // 'spotify' | 'netease'
-
-    playTrack(trackId, playerType);
-  });
-});
-
-function playTrack(trackId, playerType) {
-  if (typeof TRACKS_CONFIG === 'undefined') return;
-  const trackData = TRACKS_CONFIG.tracks.find((t) => t.id === trackId);
-  if (!trackData) return;
-
-  const card = document.querySelector(`.track-card[data-track="${trackId}"]`);
-  const songName = card.querySelector('.track-card__song').textContent;
-  const songTheme = card.querySelector('.track-card__theme').textContent;
-
-  // 如果点击的是当前正在播放的项目，则执行关闭/切歌逻辑
-  if (currentPlayingTrackId === trackId && currentPlayingPlayer === playerType) {
-    stopMusic();
-    return;
-  }
-
-  // 清除之前卡片的 playing 状态
-  document.querySelectorAll('.track-card').forEach((c) => {
-    c.classList.remove('is-playing');
-    c.querySelectorAll('.play-btn').forEach((b) => b.classList.remove('is-active'));
-  });
-
-  // 设置新播放状态
-  card.classList.add('is-playing');
-  const activeBtn = card.querySelector(`.play-btn[data-player="${playerType}"]`);
-  if (activeBtn) activeBtn.classList.add('is-active');
-
-  // 更新全局播放器
-  playerSongName.textContent = songName;
-  playerTheme.textContent = songTheme;
-  
-  // 注入 iframe
-  let iframeHtml = '';
-  if (playerType === 'spotify') {
-    const sId = trackData.spotifyId || "6rEW6ZgerMLvhMKom2Je6u"; // fallback
-    iframeHtml = `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/${sId}?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
-  } else if (playerType === 'netease') {
-    const nId = trackData.neteaseId;
-    if (nId) {
-      iframeHtml = `<iframe src="https://music.163.com/outchain/player?type=2&id=${nId}&auto=1&height=66" width="100%" height="80" frameborder="no" border="0" marginwidth="0" marginheight="0"></iframe>`;
-    } else {
-      iframeHtml = `<div class="player-placeholder" style="padding: 0.5rem; font-size: 0.8rem;">🎵 网易云音乐 · 即将上线</div>`;
-    }
-  }
-
-  playerEmbedWrap.innerHTML = iframeHtml;
-  globalPlayer.classList.add('is-active');
-  globalPlayer.classList.add('is-playing');
-
-  currentPlayingTrackId = trackId;
-  currentPlayingPlayer = playerType;
-}
-
-function stopMusic() {
-  globalPlayer.classList.remove('is-active');
-  globalPlayer.classList.remove('is-playing');
-  playerEmbedWrap.innerHTML = '';
-  
-  // 清理卡片状态
-  document.querySelectorAll('.track-card').forEach((c) => {
-    c.classList.remove('is-playing');
-    c.querySelectorAll('.play-btn').forEach((b) => b.classList.remove('is-active'));
-  });
-
-  currentPlayingTrackId = null;
-  currentPlayingPlayer = null;
-}
-
-if (playerCloseBtn) {
-  playerCloseBtn.addEventListener('click', stopMusic);
 }
 
 /* ==========================================================================
