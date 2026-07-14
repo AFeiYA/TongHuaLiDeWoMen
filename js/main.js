@@ -191,7 +191,7 @@ function toggleCard(front) {
       if (hiddenPlayer && typeof TRACKS_CONFIG !== 'undefined') {
         const trackData = TRACKS_CONFIG.tracks.find((t) => t.id === trackId);
         if (trackData && trackData.neteaseId) {
-          hiddenPlayer.innerHTML = `<iframe src="https://music.163.com/outchain/player?type=2&id=${trackData.neteaseId}&auto=1&height=66" width="0" height="0" frameborder="no" border="0" marginwidth="0" marginheight="0"></iframe>`;
+          hiddenPlayer.innerHTML = `<iframe src="https://music.163.com/outchain/player?type=2&id=${trackData.neteaseId}&auto=1&height=66" width="300" height="80" frameborder="no" border="0" marginwidth="0" marginheight="0" allow="autoplay"></iframe>`;
           currentPlayingId = trackId;
         } else {
           // 如果没有网易云 ID，则清空播放器，停止之前的音乐
