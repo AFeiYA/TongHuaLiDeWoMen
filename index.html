@@ -9,30 +9,41 @@
   <meta property="og:description" content="12首歌像12扇门，每一扇门后都有一种我们熟悉却难以命名的心理状态。" />
   <meta property="og:image" content="TongHuaLiDeWoMen.png" />
   <link rel="icon" href="TongHuaLiDeWoMen.png" type="image/png" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&family=Cinzel:wght@400;700;900&display=swap">
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
   <!-- ========== HERO ========== -->
   <section id="hero" class="hero">
-    <div class="hero__overlay"></div>
+    <div class="hero__background-blur"></div>
     <canvas id="starfield" class="hero__stars"></canvas>
-    <div class="hero__content">
-      <h1 class="hero__title">童话里的我们</h1>
-      <p class="hero__subtitle">The Us In Fairytales</p>
-      <p class="hero__desc">
-        这是一张关于「人成为自己」的概念专辑。<br />
-        12 首歌像 12 扇门：每一扇门后都有一种我们熟悉却难以命名的心理状态。<br />
-        你会听见缺失感如何长出怀疑，防御如何把心跳锁住，恐惧如何被炼成勇气；<br />
-        也会坠入荒诞的失重，体验面具与真实缠在一起的疼痛，走进雾里告别天真。
-      </p>
-      <div class="hero__actions">
-        <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" class="btn btn--primary" target="_blank" rel="noopener">立即收听</a>
-        <a href="#tracklist" class="btn btn--secondary" id="exploreBtn">探索专辑</a>
+    <div class="hero__content-grid">
+      <div class="hero__text-area">
+        <div class="hero__title-wrap">
+          <h1 class="hero__title">童话里的我们</h1>
+          <p class="hero__subtitle">The Us In Fairytales</p>
+        </div>
+        <p class="hero__desc">
+          这是一张关于「人成为自己」的概念专辑。<br />
+          12 首歌像 12 扇门：每一扇门后都有一种我们熟悉却难以命名的心理状态。<br />
+          你会听见缺失感如何长出怀疑，防御如何把心跳锁住，恐惧如何被炼成勇气；<br />
+          也会坠入荒诞 of 失重，体验面具与真实缠在一起的疼痛，走进雾里告别天真。
+        </p>
+        <div class="hero__actions">
+          <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" class="btn btn--primary" target="_blank" rel="noopener">立即收听</a>
+          <a href="#tracklist" class="btn btn--secondary" id="exploreBtn">探索专辑</a>
+        </div>
+      </div>
+      <div class="hero__cover-wrap">
+        <div class="hero__cover-card" id="heroCoverCard">
+          <div class="hero__cover-glow"></div>
+          <img src="TongHuaLiDeWoMen.png" class="hero__cover-img" alt="《童话里的我们》专辑封面" />
+        </div>
       </div>
     </div>
-    <div class="hero__scroll-hint">
+    <div class="hero__scroll-hint" id="scrollHint">
       <span>向下探索</span>
       <div class="hero__scroll-arrow"></div>
     </div>
@@ -57,6 +68,7 @@
             <p class="track-card__song">《我没有大脑》</p>
             <p class="track-card__theme">自我怀疑与价值感</p>
           </div>
+          <div class="track-card__audio-indicator"><span></span><span></span><span></span></div>
           <div class="track-card__play-btns">
             <button class="play-btn play-btn--spotify" data-player="spotify" onclick="event.stopPropagation()" title="在 Spotify 播放">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
@@ -130,11 +142,18 @@
 可我为何...感到了思考...</pre></div>
           <div class="track-card__interact"><h4>💬 互动：这首歌唱的是谁？</h4>
             <form class="interact-form" data-track-name="01 我没有大脑">
-              <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
-              <label>为什么？<textarea name="why" rows="2" placeholder="说说你的理由…"></textarea></label>
-              <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" rows="2" placeholder="如果愿意，写下来…"></textarea></label>
-              <button type="submit" class="btn btn--small">提交</button>
-              <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
+              <div class="interact-form__left">
+                <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
+                <label>为什么？<textarea name="why" placeholder="说说你的理由…"></textarea></label>
+              </div>
+              <div class="interact-form__right">
+                <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" placeholder="如果愿意，写下来…"></textarea></label>
+              </div>
+              <div class="interact-form__btn-wrap">
+                <button type="submit" class="btn btn--small">提交</button>
+                <span class="interact-form__status-tag" hidden>已保存到本地星图 🌌</span>
+                <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
+              </div>
             </form>
           </div>
         </div>
@@ -148,6 +167,7 @@
             <p class="track-card__song">《生锈的心》</p>
             <p class="track-card__theme">情感麻木与防御</p>
           </div>
+          <div class="track-card__audio-indicator"><span></span><span></span><span></span></div>
           <div class="track-card__play-btns">
             <button class="play-btn play-btn--spotify" data-player="spotify" onclick="event.stopPropagation()">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
@@ -214,11 +234,18 @@
 我也想看看 那颗心 是不是还在渴求</pre></div>
           <div class="track-card__interact"><h4>💬 互动：这首歌唱的是谁？</h4>
             <form class="interact-form" data-track-name="02 生锈的心">
-              <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
-              <label>为什么？<textarea name="why" rows="2" placeholder="说说你的理由…"></textarea></label>
-              <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" rows="2" placeholder="如果愿意，写下来…"></textarea></label>
-              <button type="submit" class="btn btn--small">提交</button>
-              <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
+              <div class="interact-form__left">
+                <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
+                <label>为什么？<textarea name="why" placeholder="说说你的理由…"></textarea></label>
+              </div>
+              <div class="interact-form__right">
+                <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" placeholder="如果愿意，写下来…"></textarea></label>
+              </div>
+              <div class="interact-form__btn-wrap">
+                <button type="submit" class="btn btn--small">提交</button>
+                <span class="interact-form__status-tag" hidden>已保存到本地星图 🌌</span>
+                <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
+              </div>
             </form>
           </div>
         </div>
@@ -232,6 +259,7 @@
             <p class="track-card__song">《害怕的人》</p>
             <p class="track-card__theme">勇气, 是带着恐惧前行</p>
           </div>
+          <div class="track-card__audio-indicator"><span></span><span></span><span></span></div>
           <div class="track-card__play-btns">
             <button class="play-btn play-btn--spotify" data-player="spotify" onclick="event.stopPropagation()">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
@@ -311,11 +339,18 @@
 但他正走向...他的森林...</pre></div>
           <div class="track-card__interact"><h4>💬 互动：这首歌唱的是谁？</h4>
             <form class="interact-form" data-track-name="03 害怕的人">
-              <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
-              <label>为什么？<textarea name="why" rows="2" placeholder="说说你的理由…"></textarea></label>
-              <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" rows="2" placeholder="如果愿意，写下来…"></textarea></label>
-              <button type="submit" class="btn btn--small">提交</button>
-              <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
+              <div class="interact-form__left">
+                <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
+                <label>为什么？<textarea name="why" placeholder="说说你的理由…"></textarea></label>
+              </div>
+              <div class="interact-form__right">
+                <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" placeholder="如果愿意，写下来…"></textarea></label>
+              </div>
+              <div class="interact-form__btn-wrap">
+                <button type="submit" class="btn btn--small">提交</button>
+                <span class="interact-form__status-tag" hidden>已保存到本地星图 🌌</span>
+                <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
+              </div>
             </form>
           </div>
         </div>
@@ -338,6 +373,7 @@
             <p class="track-card__song">《兔子洞》</p>
             <p class="track-card__theme">世界的荒诞，认知的坍塌</p>
           </div>
+          <div class="track-card__audio-indicator"><span></span><span></span><span></span></div>
           <div class="track-card__play-btns">
             <button class="play-btn play-btn--spotify" data-player="spotify" onclick="event.stopPropagation()">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
@@ -411,11 +447,18 @@
 只有...更深...更美的...空。</pre></div>
           <div class="track-card__interact"><h4>💬 互动：这首歌唱的是谁？</h4>
             <form class="interact-form" data-track-name="04 兔子洞">
-              <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
-              <label>为什么？<textarea name="why" rows="2" placeholder="说说你的理由…"></textarea></label>
-              <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" rows="2" placeholder="如果愿意，写下来…"></textarea></label>
-              <button type="submit" class="btn btn--small">提交</button>
-              <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
+              <div class="interact-form__left">
+                <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
+                <label>为什么？<textarea name="why" placeholder="说说你的理由…"></textarea></label>
+              </div>
+              <div class="interact-form__right">
+                <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" placeholder="如果愿意，写下来…"></textarea></label>
+              </div>
+              <div class="interact-form__btn-wrap">
+                <button type="submit" class="btn btn--small">提交</button>
+                <span class="interact-form__status-tag" hidden>已保存到本地星图 🌌</span>
+                <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
+              </div>
             </form>
           </div>
         </div>
@@ -429,6 +472,7 @@
             <p class="track-card__song">《说谎的木偶》</p>
             <p class="track-card__theme">伪装与真实,谎言也是这个世界的一部分</p>
           </div>
+          <div class="track-card__audio-indicator"><span></span><span></span><span></span></div>
           <div class="track-card__play-btns">
             <button class="play-btn play-btn--spotify" data-player="spotify" onclick="event.stopPropagation()">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
@@ -506,11 +550,18 @@
 它怎么...还没...停下...</pre></div>
           <div class="track-card__interact"><h4>💬 互动：这首歌唱的是谁？</h4>
             <form class="interact-form" data-track-name="05 说谎的木偶">
-              <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
-              <label>为什么？<textarea name="why" rows="2" placeholder="说说你的理由…"></textarea></label>
-              <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" rows="2" placeholder="如果愿意，写下来…"></textarea></label>
-              <button type="submit" class="btn btn--small">提交</button>
-              <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
+              <div class="interact-form__left">
+                <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
+                <label>为什么？<textarea name="why" placeholder="说说你的理由…"></textarea></label>
+              </div>
+              <div class="interact-form__right">
+                <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" placeholder="如果愿意，写下来…"></textarea></label>
+              </div>
+              <div class="interact-form__btn-wrap">
+                <button type="submit" class="btn btn--small">提交</button>
+                <span class="interact-form__status-tag" hidden>已保存到本地星图 🌌</span>
+                <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
+              </div>
             </form>
           </div>
         </div>
@@ -524,6 +575,7 @@
             <p class="track-card__song">《森林》</p>
             <p class="track-card__theme">告别天真，学会长大</p>
           </div>
+          <div class="track-card__audio-indicator"><span></span><span></span><span></span></div>
           <div class="track-card__play-btns">
             <button class="play-btn play-btn--spotify" data-player="spotify" onclick="event.stopPropagation()">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
@@ -601,11 +653,18 @@
 只有... 长大的... 我。</pre></div>
           <div class="track-card__interact"><h4>💬 互动：这首歌唱的是谁？</h4>
             <form class="interact-form" data-track-name="06 森林">
-              <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
-              <label>为什么？<textarea name="why" rows="2" placeholder="说说你的理由…"></textarea></label>
-              <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" rows="2" placeholder="如果愿意，写下来…"></textarea></label>
-              <button type="submit" class="btn btn--small">提交</button>
-              <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
+              <div class="interact-form__left">
+                <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
+                <label>为什么？<textarea name="why" placeholder="说说你的理由…"></textarea></label>
+              </div>
+              <div class="interact-form__right">
+                <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" placeholder="如果愿意，写下来…"></textarea></label>
+              </div>
+              <div class="interact-form__btn-wrap">
+                <button type="submit" class="btn btn--small">提交</button>
+                <span class="interact-form__status-tag" hidden>已保存到本地星图 🌌</span>
+                <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
+              </div>
             </form>
           </div>
         </div>
@@ -628,6 +687,7 @@
             <p class="track-card__song">《沉睡的时间》</p>
             <p class="track-card__theme">等待与沉淀，时间给出的答案</p>
           </div>
+          <div class="track-card__audio-indicator"><span></span><span></span><span></span></div>
           <div class="track-card__play-btns">
             <button class="play-btn play-btn--spotify" data-player="spotify" onclick="event.stopPropagation()">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
@@ -699,11 +759,18 @@
 出现</pre></div>
           <div class="track-card__interact"><h4>💬 互动：这首歌唱的是谁？</h4>
             <form class="interact-form" data-track-name="07 沉睡的时间">
-              <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
-              <label>为什么？<textarea name="why" rows="2" placeholder="说说你的理由…"></textarea></label>
-              <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" rows="2" placeholder="如果愿意，写下来…"></textarea></label>
-              <button type="submit" class="btn btn--small">提交</button>
-              <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
+              <div class="interact-form__left">
+                <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
+                <label>为什么？<textarea name="why" placeholder="说说你的理由…"></textarea></label>
+              </div>
+              <div class="interact-form__right">
+                <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" placeholder="如果愿意，写下来…"></textarea></label>
+              </div>
+              <div class="interact-form__btn-wrap">
+                <button type="submit" class="btn btn--small">提交</button>
+                <span class="interact-form__status-tag" hidden>已保存到本地星图 🌌</span>
+                <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
+              </div>
             </form>
           </div>
         </div>
@@ -717,6 +784,7 @@
             <p class="track-card__song">《编号B-612的告别》</p>
             <p class="track-card__theme">爱与责任，用心看见真实</p>
           </div>
+          <div class="track-card__audio-indicator"><span></span><span></span><span></span></div>
           <div class="track-card__play-btns">
             <button class="play-btn play-btn--spotify" data-player="spotify" onclick="event.stopPropagation()">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
@@ -790,11 +858,18 @@ B six twelve……
 在那儿 等我……</pre></div>
           <div class="track-card__interact"><h4>💬 互动：这首歌唱的是谁？</h4>
             <form class="interact-form" data-track-name="08 编号B-612的告别">
-              <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
-              <label>为什么？<textarea name="why" rows="2" placeholder="说说你的理由…"></textarea></label>
-              <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" rows="2" placeholder="如果愿意，写下来…"></textarea></label>
-              <button type="submit" class="btn btn--small">提交</button>
-              <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
+              <div class="interact-form__left">
+                <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
+                <label>为什么？<textarea name="why" placeholder="说说你的理由…"></textarea></label>
+              </div>
+              <div class="interact-form__right">
+                <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" placeholder="如果愿意，写下来…"></textarea></label>
+              </div>
+              <div class="interact-form__btn-wrap">
+                <button type="submit" class="btn btn--small">提交</button>
+                <span class="interact-form__status-tag" hidden>已保存到本地星图 🌌</span>
+                <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
+              </div>
             </form>
           </div>
         </div>
@@ -808,6 +883,7 @@ B six twelve……
             <p class="track-card__song">《声音》</p>
             <p class="track-card__theme">交换与代价，残缺中的觉醒</p>
           </div>
+          <div class="track-card__audio-indicator"><span></span><span></span><span></span></div>
           <div class="track-card__play-btns">
             <button class="play-btn play-btn--spotify" data-player="spotify" onclick="event.stopPropagation()">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
@@ -876,11 +952,18 @@ B six twelve……
 但我听见了... 我的...灵魂。</pre></div>
           <div class="track-card__interact"><h4>💬 互动：这首歌唱的是谁？</h4>
             <form class="interact-form" data-track-name="09 声音">
-              <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
-              <label>为什么？<textarea name="why" rows="2" placeholder="说说你的理由…"></textarea></label>
-              <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" rows="2" placeholder="如果愿意，写下来…"></textarea></label>
-              <button type="submit" class="btn btn--small">提交</button>
-              <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
+              <div class="interact-form__left">
+                <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
+                <label>为什么？<textarea name="why" placeholder="说说你的理由…"></textarea></label>
+              </div>
+              <div class="interact-form__right">
+                <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" placeholder="如果愿意，写下来…"></textarea></label>
+              </div>
+              <div class="interact-form__btn-wrap">
+                <button type="submit" class="btn btn--small">提交</button>
+                <span class="interact-form__status-tag" hidden>已保存到本地星图 🌌</span>
+                <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
+              </div>
             </form>
           </div>
         </div>
@@ -903,6 +986,7 @@ B six twelve……
             <p class="track-card__song">《魔法师》</p>
             <p class="track-card__theme">权威的幻觉，神坛来自恐惧与投射</p>
           </div>
+          <div class="track-card__audio-indicator"><span></span><span></span><span></span></div>
           <div class="track-card__play-btns">
             <button class="play-btn play-btn--spotify" data-player="spotify" onclick="event.stopPropagation()">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
@@ -978,11 +1062,18 @@ B six twelve……
 空无一物。</pre></div>
           <div class="track-card__interact"><h4>💬 互动：这首歌唱的是谁？</h4>
             <form class="interact-form" data-track-name="10 魔法师">
-              <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
-              <label>为什么？<textarea name="why" rows="2" placeholder="说说你的理由…"></textarea></label>
-              <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" rows="2" placeholder="如果愿意，写下来…"></textarea></label>
-              <button type="submit" class="btn btn--small">提交</button>
-              <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
+              <div class="interact-form__left">
+                <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
+                <label>为什么？<textarea name="why" placeholder="说说你的理由…"></textarea></label>
+              </div>
+              <div class="interact-form__right">
+                <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" placeholder="如果愿意，写下来…"></textarea></label>
+              </div>
+              <div class="interact-form__btn-wrap">
+                <button type="submit" class="btn btn--small">提交</button>
+                <span class="interact-form__status-tag" hidden>已保存到本地星图 🌌</span>
+                <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
+              </div>
             </form>
           </div>
         </div>
@@ -996,6 +1087,7 @@ B six twelve……
             <p class="track-card__song">《回家的路》</p>
             <p class="track-card__theme">归属不是地点，而是回到自己</p>
           </div>
+          <div class="track-card__audio-indicator"><span></span><span></span><span></span></div>
           <div class="track-card__play-btns">
             <button class="play-btn play-btn--spotify" data-player="spotify" onclick="event.stopPropagation()">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
@@ -1068,11 +1160,18 @@ B six twelve……
 "我回来了。"</pre></div>
           <div class="track-card__interact"><h4>💬 互动：这首歌唱的是谁？</h4>
             <form class="interact-form" data-track-name="11 回家的路">
-              <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
-              <label>为什么？<textarea name="why" rows="2" placeholder="说说你的理由…"></textarea></label>
-              <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" rows="2" placeholder="如果愿意，写下来…"></textarea></label>
-              <button type="submit" class="btn btn--small">提交</button>
-              <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
+              <div class="interact-form__left">
+                <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
+                <label>为什么？<textarea name="why" placeholder="说说你的理由…"></textarea></label>
+              </div>
+              <div class="interact-form__right">
+                <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" placeholder="如果愿意，写下来…"></textarea></label>
+              </div>
+              <div class="interact-form__btn-wrap">
+                <button type="submit" class="btn btn--small">提交</button>
+                <span class="interact-form__status-tag" hidden>已保存到本地星图 🌌</span>
+                <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
+              </div>
             </form>
           </div>
         </div>
@@ -1086,6 +1185,7 @@ B six twelve……
             <p class="track-card__song">《我们》</p>
             <p class="track-card__theme">人格整合的终章：所有分身在"我们"里和解</p>
           </div>
+          <div class="track-card__audio-indicator"><span></span><span></span><span></span></div>
           <div class="track-card__play-btns">
             <button class="play-btn play-btn--spotify" data-player="spotify" onclick="event.stopPropagation()">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
@@ -1160,11 +1260,18 @@ B six twelve……
 开始了。</pre></div>
           <div class="track-card__interact"><h4>💬 互动：这首歌唱的是谁？</h4>
             <form class="interact-form" data-track-name="12 我们">
-              <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
-              <label>为什么？<textarea name="why" rows="2" placeholder="说说你的理由…"></textarea></label>
-              <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" rows="2" placeholder="如果愿意，写下来…"></textarea></label>
-              <button type="submit" class="btn btn--small">提交</button>
-              <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
+              <div class="interact-form__left">
+                <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
+                <label>为什么？<textarea name="why" placeholder="说说你的理由…"></textarea></label>
+              </div>
+              <div class="interact-form__right">
+                <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" placeholder="如果愿意，写下来…"></textarea></label>
+              </div>
+              <div class="interact-form__btn-wrap">
+                <button type="submit" class="btn btn--small">提交</button>
+                <span class="interact-form__status-tag" hidden>已保存到本地星图 🌌</span>
+                <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
+              </div>
             </form>
           </div>
         </div>
@@ -1172,6 +1279,27 @@ B six twelve……
     </div><!-- /act 4 -->
 
   </section><!-- /tracklist -->
+
+  <!-- ========== 星光灵魂地图 & 人格卡片生成器 ========== -->
+  <section class="soul-map" id="soulMapSection">
+    <div class="soul-map__inner">
+      <h2 class="soul-map__title">星光灵魂地图</h2>
+      <p class="soul-map__desc">您的探索之旅已点亮 <span id="litCount">0</span> / 12 首歌曲的心声。当点亮所有歌曲后，即可生成您的「童话分身人格卡」。</p>
+      <div class="soul-map__canvas-wrap">
+        <canvas id="soulCanvas"></canvas>
+      </div>
+      <div class="soul-map__actions">
+        <button class="btn btn--primary btn--disabled" id="generateCardBtn" disabled>生成专属人格卡</button>
+      </div>
+      <div class="soul-map__result" id="cardResultWrap" hidden>
+        <canvas id="posterCanvas" width="600" height="900" style="display: none;"></canvas>
+        <div class="poster-preview-wrap">
+          <img id="posterPreview" class="poster-preview" alt="您的人格分身卡" />
+          <p class="poster-tip">长按或右键图片即可保存卡片 🌌</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ========== 订阅 & 信息收集 ========== -->
   <section id="subscribe" class="subscribe">
@@ -1202,6 +1330,25 @@ B six twelve……
       <p class="footer__netease">网易云音乐 · 即将上线</p>
     </div>
   </footer>
+
+    <!-- ========== 全局悬浮音乐播放器 ========== -->
+  <div class="global-player" id="globalPlayer">
+    <div class="global-player__content">
+      <div class="global-player__track-info">
+        <div class="global-player__cover-wrap">
+          <img src="TongHuaLiDeWoMen.png" class="global-player__cover" alt="唱片" />
+        </div>
+        <div class="global-player__text">
+          <h4 class="global-player__song" id="playerSongName">《我没有大脑》</h4>
+          <p class="global-player__theme" id="playerTheme">自我怀疑与价值感</p>
+        </div>
+      </div>
+      <div class="global-player__embed-wrap" id="playerEmbedWrap">
+        <!-- 动态注入播放器 iframe -->
+      </div>
+      <button class="global-player__close" id="playerCloseBtn" title="关闭播放器">×</button>
+    </div>
+  </div>
 
   <script src="data/tracks.js"></script>
   <script src="js/main.js"></script>
