@@ -31,10 +31,6 @@
           你会听见缺失感如何长出怀疑，防御如何把心跳锁住，恐惧如何被炼成勇气；<br />
           也会坠入荒诞 of 失重，体验面具与真实缠在一起的疼痛，走进雾里告别天真。
         </p>
-        <div class="hero__actions">
-          <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" class="btn btn--primary" target="_blank" rel="noopener">立即收听</a>
-          <a href="#tracklist" class="btn btn--secondary" id="exploreBtn">探索专辑</a>
-        </div>
       </div>
       <div class="hero__cover-wrap">
         <div class="hero__cover-card" id="heroCoverCard">
@@ -69,16 +65,6 @@
             <p class="track-card__theme">自我怀疑与价值感</p>
           </div>
           <div class="track-card__audio-indicator"><span></span><span></span><span></span></div>
-          <div class="track-card__play-btns">
-            <button class="play-btn play-btn--spotify" data-player="spotify" onclick="event.stopPropagation()" title="在 Spotify 播放">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-              Spotify
-            </button>
-            <button class="play-btn play-btn--netease" data-player="netease" onclick="event.stopPropagation()" title="在网易云播放">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/><polygon points="10,8 16,12 10,16" fill="currentColor"/></svg>
-              网易云
-            </button>
-          </div>
           <span class="track-card__toggle">＋</span>
         </div>
         <div class="track-card__player-area" hidden>
@@ -90,6 +76,11 @@
           </div>
         </div>
         <div class="track-card__detail" hidden>
+          <div class="track-card__player-switch" style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.8rem;">
+            <span style="font-size: 0.8rem; color: var(--text-dim);">切换播放器源：</span>
+            <button class="play-btn play-btn--netease" data-player="netease">网易云音乐</button>
+            <button class="play-btn play-btn--spotify" data-player="spotify">Spotify</button>
+          </div>
           <div class="track-card__links">
             <span class="track-card__links-label">🔗 在其他平台收听</span>
             <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--spotify">Spotify</a>
@@ -168,16 +159,6 @@
             <p class="track-card__theme">情感麻木与防御</p>
           </div>
           <div class="track-card__audio-indicator"><span></span><span></span><span></span></div>
-          <div class="track-card__play-btns">
-            <button class="play-btn play-btn--spotify" data-player="spotify" onclick="event.stopPropagation()">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-              Spotify
-            </button>
-            <button class="play-btn play-btn--netease" data-player="netease" onclick="event.stopPropagation()">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/><polygon points="10,8 16,12 10,16" fill="currentColor"/></svg>
-              网易云
-            </button>
-          </div>
           <span class="track-card__toggle">＋</span>
         </div>
         <div class="track-card__player-area" hidden>
@@ -187,6 +168,11 @@
           <div class="player-netease" hidden><p class="player-placeholder">🎵 网易云音乐 · 即将上线</p></div>
         </div>
         <div class="track-card__detail" hidden>
+          <div class="track-card__player-switch" style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.8rem;">
+            <span style="font-size: 0.8rem; color: var(--text-dim);">切换播放器源：</span>
+            <button class="play-btn play-btn--netease" data-player="netease">网易云音乐</button>
+            <button class="play-btn play-btn--spotify" data-player="spotify">Spotify</button>
+          </div>
           <div class="track-card__links">
             <span class="track-card__links-label">🔗 在其他平台收听</span>
             <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--spotify">Spotify</a>
@@ -260,16 +246,6 @@
             <p class="track-card__theme">勇气, 是带着恐惧前行</p>
           </div>
           <div class="track-card__audio-indicator"><span></span><span></span><span></span></div>
-          <div class="track-card__play-btns">
-            <button class="play-btn play-btn--spotify" data-player="spotify" onclick="event.stopPropagation()">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-              Spotify
-            </button>
-            <button class="play-btn play-btn--netease" data-player="netease" onclick="event.stopPropagation()">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/><polygon points="10,8 16,12 10,16" fill="currentColor"/></svg>
-              网易云
-            </button>
-          </div>
           <span class="track-card__toggle">＋</span>
         </div>
         <div class="track-card__player-area" hidden>
@@ -279,6 +255,11 @@
           <div class="player-netease" hidden><p class="player-placeholder">🎵 网易云音乐 · 即将上线</p></div>
         </div>
         <div class="track-card__detail" hidden>
+          <div class="track-card__player-switch" style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.8rem;">
+            <span style="font-size: 0.8rem; color: var(--text-dim);">切换播放器源：</span>
+            <button class="play-btn play-btn--netease" data-player="netease">网易云音乐</button>
+            <button class="play-btn play-btn--spotify" data-player="spotify">Spotify</button>
+          </div>
           <div class="track-card__links">
             <span class="track-card__links-label">🔗 在其他平台收听</span>
             <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--spotify">Spotify</a>
@@ -374,16 +355,6 @@
             <p class="track-card__theme">世界的荒诞，认知的坍塌</p>
           </div>
           <div class="track-card__audio-indicator"><span></span><span></span><span></span></div>
-          <div class="track-card__play-btns">
-            <button class="play-btn play-btn--spotify" data-player="spotify" onclick="event.stopPropagation()">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-              Spotify
-            </button>
-            <button class="play-btn play-btn--netease" data-player="netease" onclick="event.stopPropagation()">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/><polygon points="10,8 16,12 10,16" fill="currentColor"/></svg>
-              网易云
-            </button>
-          </div>
           <span class="track-card__toggle">＋</span>
         </div>
         <div class="track-card__player-area" hidden>
@@ -393,6 +364,11 @@
           <div class="player-netease" hidden><p class="player-placeholder">🎵 网易云音乐 · 即将上线</p></div>
         </div>
         <div class="track-card__detail" hidden>
+          <div class="track-card__player-switch" style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.8rem;">
+            <span style="font-size: 0.8rem; color: var(--text-dim);">切换播放器源：</span>
+            <button class="play-btn play-btn--netease" data-player="netease">网易云音乐</button>
+            <button class="play-btn play-btn--spotify" data-player="spotify">Spotify</button>
+          </div>
           <div class="track-card__links">
             <span class="track-card__links-label">🔗 在其他平台收听</span>
             <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--spotify">Spotify</a>
@@ -473,16 +449,6 @@
             <p class="track-card__theme">伪装与真实,谎言也是这个世界的一部分</p>
           </div>
           <div class="track-card__audio-indicator"><span></span><span></span><span></span></div>
-          <div class="track-card__play-btns">
-            <button class="play-btn play-btn--spotify" data-player="spotify" onclick="event.stopPropagation()">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-              Spotify
-            </button>
-            <button class="play-btn play-btn--netease" data-player="netease" onclick="event.stopPropagation()">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/><polygon points="10,8 16,12 10,16" fill="currentColor"/></svg>
-              网易云
-            </button>
-          </div>
           <span class="track-card__toggle">＋</span>
         </div>
         <div class="track-card__player-area" hidden>
@@ -492,6 +458,11 @@
           <div class="player-netease" hidden><p class="player-placeholder">🎵 网易云音乐 · 即将上线</p></div>
         </div>
         <div class="track-card__detail" hidden>
+          <div class="track-card__player-switch" style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.8rem;">
+            <span style="font-size: 0.8rem; color: var(--text-dim);">切换播放器源：</span>
+            <button class="play-btn play-btn--netease" data-player="netease">网易云音乐</button>
+            <button class="play-btn play-btn--spotify" data-player="spotify">Spotify</button>
+          </div>
           <div class="track-card__links">
             <span class="track-card__links-label">🔗 在其他平台收听</span>
             <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--spotify">Spotify</a>
@@ -576,16 +547,6 @@
             <p class="track-card__theme">告别天真，学会长大</p>
           </div>
           <div class="track-card__audio-indicator"><span></span><span></span><span></span></div>
-          <div class="track-card__play-btns">
-            <button class="play-btn play-btn--spotify" data-player="spotify" onclick="event.stopPropagation()">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-              Spotify
-            </button>
-            <button class="play-btn play-btn--netease" data-player="netease" onclick="event.stopPropagation()">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/><polygon points="10,8 16,12 10,16" fill="currentColor"/></svg>
-              网易云
-            </button>
-          </div>
           <span class="track-card__toggle">＋</span>
         </div>
         <div class="track-card__player-area" hidden>
@@ -595,6 +556,11 @@
           <div class="player-netease" hidden><p class="player-placeholder">🎵 网易云音乐 · 即将上线</p></div>
         </div>
         <div class="track-card__detail" hidden>
+          <div class="track-card__player-switch" style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.8rem;">
+            <span style="font-size: 0.8rem; color: var(--text-dim);">切换播放器源：</span>
+            <button class="play-btn play-btn--netease" data-player="netease">网易云音乐</button>
+            <button class="play-btn play-btn--spotify" data-player="spotify">Spotify</button>
+          </div>
           <div class="track-card__links">
             <span class="track-card__links-label">🔗 在其他平台收听</span>
             <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--spotify">Spotify</a>
@@ -688,16 +654,6 @@
             <p class="track-card__theme">等待与沉淀，时间给出的答案</p>
           </div>
           <div class="track-card__audio-indicator"><span></span><span></span><span></span></div>
-          <div class="track-card__play-btns">
-            <button class="play-btn play-btn--spotify" data-player="spotify" onclick="event.stopPropagation()">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-              Spotify
-            </button>
-            <button class="play-btn play-btn--netease" data-player="netease" onclick="event.stopPropagation()">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/><polygon points="10,8 16,12 10,16" fill="currentColor"/></svg>
-              网易云
-            </button>
-          </div>
           <span class="track-card__toggle">＋</span>
         </div>
         <div class="track-card__player-area" hidden>
@@ -707,6 +663,11 @@
           <div class="player-netease" hidden><p class="player-placeholder">🎵 网易云音乐 · 即将上线</p></div>
         </div>
         <div class="track-card__detail" hidden>
+          <div class="track-card__player-switch" style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.8rem;">
+            <span style="font-size: 0.8rem; color: var(--text-dim);">切换播放器源：</span>
+            <button class="play-btn play-btn--netease" data-player="netease">网易云音乐</button>
+            <button class="play-btn play-btn--spotify" data-player="spotify">Spotify</button>
+          </div>
           <div class="track-card__links">
             <span class="track-card__links-label">🔗 在其他平台收听</span>
             <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--spotify">Spotify</a>
@@ -785,16 +746,6 @@
             <p class="track-card__theme">爱与责任，用心看见真实</p>
           </div>
           <div class="track-card__audio-indicator"><span></span><span></span><span></span></div>
-          <div class="track-card__play-btns">
-            <button class="play-btn play-btn--spotify" data-player="spotify" onclick="event.stopPropagation()">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-              Spotify
-            </button>
-            <button class="play-btn play-btn--netease" data-player="netease" onclick="event.stopPropagation()">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/><polygon points="10,8 16,12 10,16" fill="currentColor"/></svg>
-              网易云
-            </button>
-          </div>
           <span class="track-card__toggle">＋</span>
         </div>
         <div class="track-card__player-area" hidden>
@@ -804,6 +755,11 @@
           <div class="player-netease" hidden><p class="player-placeholder">🎵 网易云音乐 · 即将上线</p></div>
         </div>
         <div class="track-card__detail" hidden>
+          <div class="track-card__player-switch" style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.8rem;">
+            <span style="font-size: 0.8rem; color: var(--text-dim);">切换播放器源：</span>
+            <button class="play-btn play-btn--netease" data-player="netease">网易云音乐</button>
+            <button class="play-btn play-btn--spotify" data-player="spotify">Spotify</button>
+          </div>
           <div class="track-card__links">
             <span class="track-card__links-label">🔗 在其他平台收听</span>
             <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--spotify">Spotify</a>
@@ -884,16 +840,6 @@ B six twelve……
             <p class="track-card__theme">交换与代价，残缺中的觉醒</p>
           </div>
           <div class="track-card__audio-indicator"><span></span><span></span><span></span></div>
-          <div class="track-card__play-btns">
-            <button class="play-btn play-btn--spotify" data-player="spotify" onclick="event.stopPropagation()">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-              Spotify
-            </button>
-            <button class="play-btn play-btn--netease" data-player="netease" onclick="event.stopPropagation()">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/><polygon points="10,8 16,12 10,16" fill="currentColor"/></svg>
-              网易云
-            </button>
-          </div>
           <span class="track-card__toggle">＋</span>
         </div>
         <div class="track-card__player-area" hidden>
@@ -903,6 +849,11 @@ B six twelve……
           <div class="player-netease" hidden><p class="player-placeholder">🎵 网易云音乐 · 即将上线</p></div>
         </div>
         <div class="track-card__detail" hidden>
+          <div class="track-card__player-switch" style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.8rem;">
+            <span style="font-size: 0.8rem; color: var(--text-dim);">切换播放器源：</span>
+            <button class="play-btn play-btn--netease" data-player="netease">网易云音乐</button>
+            <button class="play-btn play-btn--spotify" data-player="spotify">Spotify</button>
+          </div>
           <div class="track-card__links">
             <span class="track-card__links-label">🔗 在其他平台收听</span>
             <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--spotify">Spotify</a>
@@ -987,16 +938,6 @@ B six twelve……
             <p class="track-card__theme">权威的幻觉，神坛来自恐惧与投射</p>
           </div>
           <div class="track-card__audio-indicator"><span></span><span></span><span></span></div>
-          <div class="track-card__play-btns">
-            <button class="play-btn play-btn--spotify" data-player="spotify" onclick="event.stopPropagation()">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-              Spotify
-            </button>
-            <button class="play-btn play-btn--netease" data-player="netease" onclick="event.stopPropagation()">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/><polygon points="10,8 16,12 10,16" fill="currentColor"/></svg>
-              网易云
-            </button>
-          </div>
           <span class="track-card__toggle">＋</span>
         </div>
         <div class="track-card__player-area" hidden>
@@ -1006,6 +947,11 @@ B six twelve……
           <div class="player-netease" hidden><p class="player-placeholder">🎵 网易云音乐 · 即将上线</p></div>
         </div>
         <div class="track-card__detail" hidden>
+          <div class="track-card__player-switch" style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.8rem;">
+            <span style="font-size: 0.8rem; color: var(--text-dim);">切换播放器源：</span>
+            <button class="play-btn play-btn--netease" data-player="netease">网易云音乐</button>
+            <button class="play-btn play-btn--spotify" data-player="spotify">Spotify</button>
+          </div>
           <div class="track-card__links">
             <span class="track-card__links-label">🔗 在其他平台收听</span>
             <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--spotify">Spotify</a>
@@ -1088,16 +1034,6 @@ B six twelve……
             <p class="track-card__theme">归属不是地点，而是回到自己</p>
           </div>
           <div class="track-card__audio-indicator"><span></span><span></span><span></span></div>
-          <div class="track-card__play-btns">
-            <button class="play-btn play-btn--spotify" data-player="spotify" onclick="event.stopPropagation()">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-              Spotify
-            </button>
-            <button class="play-btn play-btn--netease" data-player="netease" onclick="event.stopPropagation()">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/><polygon points="10,8 16,12 10,16" fill="currentColor"/></svg>
-              网易云
-            </button>
-          </div>
           <span class="track-card__toggle">＋</span>
         </div>
         <div class="track-card__player-area" hidden>
@@ -1107,6 +1043,11 @@ B six twelve……
           <div class="player-netease" hidden><p class="player-placeholder">🎵 网易云音乐 · 即将上线</p></div>
         </div>
         <div class="track-card__detail" hidden>
+          <div class="track-card__player-switch" style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.8rem;">
+            <span style="font-size: 0.8rem; color: var(--text-dim);">切换播放器源：</span>
+            <button class="play-btn play-btn--netease" data-player="netease">网易云音乐</button>
+            <button class="play-btn play-btn--spotify" data-player="spotify">Spotify</button>
+          </div>
           <div class="track-card__links">
             <span class="track-card__links-label">🔗 在其他平台收听</span>
             <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--spotify">Spotify</a>
@@ -1186,16 +1127,6 @@ B six twelve……
             <p class="track-card__theme">人格整合的终章：所有分身在"我们"里和解</p>
           </div>
           <div class="track-card__audio-indicator"><span></span><span></span><span></span></div>
-          <div class="track-card__play-btns">
-            <button class="play-btn play-btn--spotify" data-player="spotify" onclick="event.stopPropagation()">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-              Spotify
-            </button>
-            <button class="play-btn play-btn--netease" data-player="netease" onclick="event.stopPropagation()">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/><polygon points="10,8 16,12 10,16" fill="currentColor"/></svg>
-              网易云
-            </button>
-          </div>
           <span class="track-card__toggle">＋</span>
         </div>
         <div class="track-card__player-area" hidden>
@@ -1205,6 +1136,11 @@ B six twelve……
           <div class="player-netease" hidden><p class="player-placeholder">🎵 网易云音乐 · 即将上线</p></div>
         </div>
         <div class="track-card__detail" hidden>
+          <div class="track-card__player-switch" style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.8rem;">
+            <span style="font-size: 0.8rem; color: var(--text-dim);">切换播放器源：</span>
+            <button class="play-btn play-btn--netease" data-player="netease">网易云音乐</button>
+            <button class="play-btn play-btn--spotify" data-player="spotify">Spotify</button>
+          </div>
           <div class="track-card__links">
             <span class="track-card__links-label">🔗 在其他平台收听</span>
             <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--spotify">Spotify</a>

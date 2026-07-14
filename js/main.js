@@ -145,14 +145,27 @@ document.querySelectorAll('.track-card').forEach((card) => {
 
 document.querySelectorAll('.track-card__front').forEach((front) => {
   front.addEventListener('click', (e) => {
-    // 阻止点击播放按钮时触发展开
-    if (e.target.closest('.play-btn')) return;
+    const card = front.closest('.track-card');
+    const trackId = parseInt(card.dataset.track, 10);
+    
+    // 如果当前没有播放这首歌，就播放网易云音乐
+    if (currentPlayingTrackId !== trackId) {
+      playTrack(trackId, 'netease');
+    }
+    
     toggleCard(front);
   });
   
   front.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
+      const card = front.closest('.track-card');
+      const trackId = parseInt(card.dataset.track, 10);
+      
+      if (currentPlayingTrackId !== trackId) {
+        playTrack(trackId, 'netease');
+      }
+      
       toggleCard(front);
     }
   });
