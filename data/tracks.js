@@ -48,7 +48,7 @@ const TRACKS_CONFIG = {
     { // 02 生锈的心
       id: 2,
       spotifyId:  "",
-      neteaseId:  "",
+      neteaseId:  "3364674489",
       links: {
         spotify:      "",
         appleMusic:   "",
@@ -60,7 +60,7 @@ const TRACKS_CONFIG = {
     { // 03 害怕的人
       id: 3,
       spotifyId:  "",
-      neteaseId:  "",
+      neteaseId:  "3364674490",
       links: {
         spotify:      "",
         appleMusic:   "",
@@ -74,7 +74,7 @@ const TRACKS_CONFIG = {
     { // 04 兔子洞
       id: 4,
       spotifyId:  "",
-      neteaseId:  "",
+      neteaseId:  "3364674491",
       links: {
         spotify:      "",
         appleMusic:   "",
@@ -86,7 +86,7 @@ const TRACKS_CONFIG = {
     { // 05 说谎的木偶
       id: 5,
       spotifyId:  "",
-      neteaseId:  "",
+      neteaseId:  "3364674492",
       links: {
         spotify:      "",
         appleMusic:   "",
@@ -98,7 +98,7 @@ const TRACKS_CONFIG = {
     { // 06 森林
       id: 6,
       spotifyId:  "",
-      neteaseId:  "",
+      neteaseId:  "3364674494",
       links: {
         spotify:      "",
         appleMusic:   "",
@@ -112,7 +112,7 @@ const TRACKS_CONFIG = {
     { // 07 沉睡的时间
       id: 7,
       spotifyId:  "",
-      neteaseId:  "",
+      neteaseId:  "3364676328",
       links: {
         spotify:      "",
         appleMusic:   "",
@@ -124,7 +124,7 @@ const TRACKS_CONFIG = {
     { // 08 编号B-612的告别
       id: 8,
       spotifyId:  "",
-      neteaseId:  "",
+      neteaseId:  "3364674496",
       links: {
         spotify:      "",
         appleMusic:   "",
@@ -136,7 +136,7 @@ const TRACKS_CONFIG = {
     { // 09 声音
       id: 9,
       spotifyId:  "",
-      neteaseId:  "",
+      neteaseId:  "3364676330",
       links: {
         spotify:      "",
         appleMusic:   "",
@@ -150,7 +150,7 @@ const TRACKS_CONFIG = {
     { // 10 魔法师
       id: 10,
       spotifyId:  "",
-      neteaseId:  "",
+      neteaseId:  "3364674497",
       links: {
         spotify:      "",
         appleMusic:   "",
@@ -162,7 +162,7 @@ const TRACKS_CONFIG = {
     { // 11 回家的路
       id: 11,
       spotifyId:  "",
-      neteaseId:  "",
+      neteaseId:  "3364676331",
       links: {
         spotify:      "",
         appleMusic:   "",
@@ -174,7 +174,7 @@ const TRACKS_CONFIG = {
     { // 12 我们
       id: 12,
       spotifyId:  "",
-      neteaseId:  "",
+      neteaseId:  "3364676332",
       links: {
         spotify:      "",
         appleMusic:   "",
