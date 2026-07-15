@@ -15,6 +15,12 @@
 </head>
 <body>
 
+  <!-- ========== LANGUAGE SWITCHER ========== -->
+  <div class="lang-switcher" id="langSwitcher">
+    <button class="lang-btn active" data-lang="zh">中</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+
   <!-- ========== HERO ========== -->
   <section id="hero" class="hero">
     <div class="hero__background-blur"></div>
@@ -22,15 +28,13 @@
     <div class="hero__content-grid">
       <div class="hero__text-area">
         <div class="hero__title-wrap">
-          <h1 class="hero__title">童话里的我们</h1>
-          <p class="hero__subtitle">The Us In Fairytales</p>
+          <h1 class="hero__title" data-i18n="heroTitle">童话里的我们</h1>
+          <p class="hero__subtitle" data-i18n="heroSubtitle">The Us In Fairytales</p>
         </div>
-        <p class="hero__desc">
-          这是一张关于「人成为自己」的概念专辑。<br />
+        <p class="hero__desc" data-i18n="heroDesc">这是一张关于「人成为自己」的概念专辑。<br />
           12 首歌像 12 扇门：每一扇门后都有一种我们熟悉却难以命名的心理状态。<br />
           你会听见缺失感如何长出怀疑，防御如何把心跳锁住，恐惧如何被炼成勇气；<br />
-          也会坠入荒诞的失重，体验面具与真实缠在一起的疼痛，走进雾里告别天真。
-        </p>
+          也会坠入荒诞的失重，体验面具与真实缠在一起的疼痛，走进雾里告别天真。</p>
       </div>
       <div class="hero__cover-wrap">
         <div class="hero__cover-card" id="heroCoverCard">
@@ -40,7 +44,7 @@
       </div>
     </div>
     <div class="hero__scroll-hint" id="scrollHint">
-      <span>向下探索</span>
+      <span data-i18n="scrollHint">向下探索</span>
       <div class="hero__scroll-arrow"></div>
     </div>
   </section>
@@ -52,7 +56,7 @@
     <div class="act" data-act="1">
       <div class="act__header">
         <span class="act__number">第一幕</span>
-        <h2 class="act__title">迷失</h2>
+        <h2 class="act__title" data-i18n="act1Title">迷失</h2>
         <p class="act__subtitle">Tracks 1 – 3</p>
       </div>
 
@@ -304,7 +308,7 @@
     <div class="act" data-act="2">
       <div class="act__header">
         <span class="act__number">第二幕</span>
-        <h2 class="act__title">寻找</h2>
+        <h2 class="act__title" data-i18n="act2Title">寻找</h2>
         <p class="act__subtitle">Tracks 4 – 6</p>
       </div>
 
@@ -567,7 +571,7 @@
     <div class="act" data-act="3">
       <div class="act__header">
         <span class="act__number">第三幕</span>
-        <h2 class="act__title">觉醒</h2>
+        <h2 class="act__title" data-i18n="act3Title">觉醒</h2>
         <p class="act__subtitle">Tracks 7 – 9</p>
       </div>
 
@@ -815,7 +819,7 @@ B six twelve……
     <div class="act" data-act="4">
       <div class="act__header">
         <span class="act__number">第四幕</span>
-        <h2 class="act__title">回归</h2>
+        <h2 class="act__title" data-i18n="act4Title">回归</h2>
         <p class="act__subtitle">Tracks 10 – 12</p>
       </div>
 
@@ -1073,19 +1077,19 @@ B six twelve……
   <!-- ========== 星光灵魂地图 & 人格卡片生成器 ========== -->
   <section class="soul-map" id="soulMapSection">
     <div class="soul-map__inner">
-      <h2 class="soul-map__title">星光灵魂地图</h2>
-      <p class="soul-map__desc">您的探索之旅已点亮 <span id="litCount">0</span> / 12 首歌曲的心声。当点亮所有歌曲后，即可生成您的「童话分身人格卡」。</p>
+      <h2 class="soul-map__title" data-i18n="soulMapTitle">星光灵魂地图</h2>
+      <p class="soul-map__desc" data-i18n="soulMapDesc">您的探索之旅已点亮 <span id="litCount">0</span> / 12 首歌曲的心声。当点亮所有歌曲后，即可生成您的「童话分身人格卡」。</p>
       <div class="soul-map__canvas-wrap">
         <canvas id="soulCanvas"></canvas>
       </div>
       <div class="soul-map__actions">
-        <button class="btn btn--primary btn--disabled" id="generateCardBtn" disabled>生成专属人格卡</button>
+        <button class="btn btn--primary btn--disabled" id="generateCardBtn" disabled><span data-i18n="generateBtnText">生成专属人格卡</span></button>
       </div>
       <div class="soul-map__result" id="cardResultWrap" hidden>
         <canvas id="posterCanvas" width="600" height="900" style="display: none;"></canvas>
         <div class="poster-preview-wrap">
           <img id="posterPreview" class="poster-preview" alt="您的人格分身卡" />
-          <p class="poster-tip">长按或右键图片即可保存卡片 🌌</p>
+          <p class="poster-tip" data-i18n="posterTipText">长按或右键图片即可保存卡片 🌌</p>
         </div>
       </div>
     </div>
@@ -1097,11 +1101,11 @@ B six twelve……
       <h2 class="subscribe__title">加入我们的故事</h2>
       <p class="subscribe__desc">留下你的联系方式，第一时间获取专辑动态、演出信息与幕后故事。</p>
       <form class="subscribe__form" id="subscribeForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <input type="text" name="nickname" placeholder="你的昵称" required />
-        <input type="email" name="email" placeholder="你的邮箱" required />
-        <textarea name="message" rows="3" placeholder="想对我们说的话（选填）"></textarea>
-        <button type="submit" class="btn btn--primary">订阅</button>
-        <div class="subscribe__thanks" hidden>感谢你的关注！我们会在童话的下一章与你相见 ✨</div>
+        <input type="text" name="nickname" placeholder="你的昵称" data-i18n-placeholder="nicknamePlaceholder" required />
+        <input type="email" name="email" placeholder="你的邮箱" data-i18n-placeholder="emailPlaceholder" required />
+        <textarea name="message" rows="3" placeholder="想对我们说的话（选填）" data-i18n-placeholder="msgPlaceholder"></textarea>
+        <button type="submit" class="btn btn--primary" data-i18n="subscribeBtn">订阅</button>
+        <div class="subscribe__thanks" data-i18n="subscribeThanks" hidden>感谢你的关注！我们会在童话的下一章与你相见 ✨</div>
       </form>
     </div>
   </section>
