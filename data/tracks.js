@@ -36,7 +36,7 @@ const TRACKS_CONFIG = {
     { // 01 我没有大脑
       id: 1,
       spotifyId:  "6rEW6ZgerMLvhMKom2Je6u",   // ← Spotify 歌曲 ID（从 Spotify 链接中复制）
-      neteaseId:  "3361217601",                           // ← 网易云歌曲 ID（例如 "2060797177"）
+      neteaseId:  "3364676325",                           // ← 网易云歌曲 ID（例如 "2060797177"）
       links: {
         spotify:      "",                       // ← 单曲 Spotify 链接（留空用默认）
         appleMusic:   "",                       // ← 单曲 Apple Music 链接
