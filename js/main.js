@@ -436,18 +436,7 @@ function setLanguage(lang) {
   // 刷新所有播放控制按钮的文本与状态
   updateIndicators();
 
-  // 如果当前有歌曲在播放，切换语言时同步切换音轨语言，确保播放对应的中英文版本
-  if (currentPlayingId !== null && typeof TRACKS_CONFIG !== 'undefined') {
-    const tracksList = (currentLang === 'zh') ? TRACKS_CONFIG.tracks : TRACKS_CONFIG.tracks_en;
-    const trackData = tracksList.find((t) => t.id === currentPlayingId);
-    if (trackData && trackData.neteaseId) {
-      hiddenPlayer.innerHTML = `<iframe src="https://music.163.com/outchain/player?type=2&id=${trackData.neteaseId}&auto=1&height=66" width="300" height="80" frameborder="no" border="0" marginwidth="0" marginheight="0" allow="autoplay"></iframe>`;
-    } else {
-      hiddenPlayer.innerHTML = '';
-      currentPlayingId = null;
-      updateIndicators();
-    }
-  }
+
 
   // 重新绘制双星轨 Canvas (浮动雷达与底部画册)
   drawRadarMap();
