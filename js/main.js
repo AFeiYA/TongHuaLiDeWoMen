@@ -1,6 +1,6 @@
 /**
  * 童话里的我们 / A Fairytale Called Us — Main JavaScript (Editorial Magazine Edition)
- * 功能：星光粒子 · 3D 封面 · 滚动收听与进度同步 (Scroll-linked Autoplay) · 浮动星图雷达导航 · 双语化 (CN/EN) · 杂志海报 Canvas 导出
+ * 功能：星光粒子 · 3D 封面 · 滚动足迹记录 · 点击式后台播放 (Click to Play/Pause) · 浮动星图雷达导航 · 双语化 (CN/EN) · 杂志海报 Canvas 导出
  */
 
 /* ==========================================================================
@@ -143,8 +143,7 @@ const TRANSLATIONS = {
     act4Num: "Act IV",
     act4Title: "回归",
     act4Subtitle: "第四幕 / Return",
-    nowPlaying: "正在阅读与收听",
-    listenLabel: "🔗 收听此曲目其它平台源",
+    listenLabel: "🔗 在其他平台收听",
     
     // 星图配置
     soulMapTitle: "星光轨迹灵魂星图",
@@ -201,7 +200,6 @@ const TRANSLATIONS = {
     act4Num: "Act IV",
     act4Title: "Return",
     act4Subtitle: "Act IV / Return",
-    nowPlaying: "Now Reading & Listening",
     listenLabel: "🔗 Listen on other platforms",
     
     soulMapTitle: "Starlight Constellation Map",
@@ -282,12 +280,17 @@ function setLanguage(lang) {
       const titleEl = section.querySelector('.track-song-name');
       const themeEl = section.querySelector('.track-section-theme');
       const lyricsPre = section.querySelector('.track-lyrics-col pre');
+      const linksLabel = section.querySelector('.links-label');
       
       if (titleEl) titleEl.textContent = (lang === 'zh') ? `《${t.name}》` : t.name;
       if (themeEl) themeEl.textContent = t.theme;
       if (lyricsPre) lyricsPre.textContent = t.lyrics;
+      if (linksLabel) linksLabel.textContent = tr.listenLabel;
     });
   }
+
+  // 刷新所有播放控制按钮的文本与状态
+  updateIndicators();
 
   // 重新绘制双星轨 Canvas (浮动雷达与底部画册)
   drawRadarMap();
@@ -379,11 +382,8 @@ function updateProgressUI() {
 }
 
 /* ==========================================================================
-   7. 滚动监听：自动播放、激活高亮、点亮星图 (Intersection Observer)
+   7. 滚动监听：仅做背景行高高亮与点亮星轨足迹 (Intersection Observer)
    ========================================================================== */
-let currentPlayingId = null;
-const hiddenPlayer = document.getElementById('hiddenPlayerContainer');
-
 (function initScrollObserver() {
   const sections = document.querySelectorAll('.track-section');
   if (!sections.length) return;
@@ -397,29 +397,19 @@ const hiddenPlayer = document.getElementById('hiddenPlayerContainer');
         sections.forEach(s => s.classList.remove('active'));
         entry.target.classList.add('active');
 
-        // 2. 自动标记该曲目足迹为“已探索点亮”
-        saveLitTrack(trackId);
-
-        // 3. 自动触发隐藏式后台静默切歌播放
-        if (currentPlayingId !== trackId) {
-          if (hiddenPlayer && typeof TRACKS_CONFIG !== 'undefined') {
-            const tracksList = (currentLang === 'zh') ? TRACKS_CONFIG.tracks : TRACKS_CONFIG.tracks_en;
-            const trackData = tracksList.find((t) => t.id === trackId);
-            
-            if (trackData && trackData.neteaseId) {
-              hiddenPlayer.innerHTML = `<iframe src="https://music.163.com/outchain/player?type=2&id=${trackData.neteaseId}&auto=1&height=66" width="300" height="80" frameborder="no" border="0" marginwidth="0" marginheight="0" allow="autoplay"></iframe>`;
-              currentPlayingId = trackId;
-            } else {
-              hiddenPlayer.innerHTML = '';
-              currentPlayingId = null;
-            }
-          }
+        // 2. 动态读取当前 Section 的幕/曲目个性化主题色变量，修改 body 背景虚光
+        const computedStyle = getComputedStyle(entry.target);
+        const themeColorGlow = computedStyle.getPropertyValue('--theme-color-glow');
+        if (themeColorGlow) {
+          document.body.style.setProperty('--body-theme-glow', themeColorGlow.trim());
         }
+
+        // 3. 自动标记该曲目足迹为“已探索点亮”
+        saveLitTrack(trackId);
       }
     });
   }, {
-    // 监听当曲目部分占屏幕视口高度至少 30% 且在中心附近时的触发
-    rootMargin: '-25% 0px -25% 0px',
+    rootMargin: '-30% 0px -30% 0px',
     threshold: 0.1
   });
 
@@ -427,7 +417,87 @@ const hiddenPlayer = document.getElementById('hiddenPlayerContainer');
 })();
 
 /* ==========================================================================
-   8. 绘制与控制 Constellation 星轨地图 (抽象连线与点击导航逻辑)
+   8. 点击切歌与收听控制 (Bespoke Play/Pause Toggles)
+   ========================================================================== */
+let currentPlayingId = null;
+const hiddenPlayer = document.getElementById('hiddenPlayerContainer');
+
+function initPlayControls() {
+  document.querySelectorAll('.track-section').forEach(section => {
+    const trackId = parseInt(section.dataset.track, 10);
+    const indicator = section.querySelector('.track-indicator');
+    
+    if (indicator) {
+      indicator.addEventListener('click', () => {
+        togglePlay(trackId);
+      });
+      
+      indicator.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          togglePlay(trackId);
+        }
+      });
+    }
+  });
+}
+
+function togglePlay(trackId) {
+  if (currentPlayingId === trackId) {
+    // 已经处于在播状态，再次点击为暂停销毁
+    if (hiddenPlayer) hiddenPlayer.innerHTML = '';
+    currentPlayingId = null;
+  } else {
+    // 未在播，进行切歌播放
+    if (hiddenPlayer && typeof TRACKS_CONFIG !== 'undefined') {
+      const tracksList = (currentLang === 'zh') ? TRACKS_CONFIG.tracks : TRACKS_CONFIG.tracks_en;
+      const trackData = tracksList.find((t) => t.id === trackId);
+      
+      if (trackData && trackData.neteaseId) {
+        hiddenPlayer.innerHTML = `<iframe src="https://music.163.com/outchain/player?type=2&id=${trackData.neteaseId}&auto=1&height=66" width="300" height="80" frameborder="no" border="0" marginwidth="0" marginheight="0" allow="autoplay"></iframe>`;
+        currentPlayingId = trackId;
+      } else {
+        hiddenPlayer.innerHTML = '';
+        currentPlayingId = null;
+      }
+    }
+  }
+
+  // 刷新所有控制条的指示文本
+  updateIndicators();
+}
+
+function updateIndicators() {
+  document.querySelectorAll('.track-section').forEach(section => {
+    const trackId = parseInt(section.dataset.track, 10);
+    const indicator = section.querySelector('.track-indicator');
+    const dot = section.querySelector('.pulse-dot');
+    const textEl = section.querySelector('.indicator-text');
+    if (!indicator || !textEl) return;
+
+    const isPlaying = (currentPlayingId === trackId);
+    
+    // 切换控制条的外观样式类
+    indicator.classList.toggle('playing', isPlaying);
+    
+    if (dot) {
+      if (isPlaying) {
+        dot.textContent = ''; // 播放中显示无文字脉冲星圈
+      } else {
+        dot.textContent = '▶'; // 未播放显示三角形播放图标
+      }
+    }
+
+    if (currentLang === 'zh') {
+      textEl.textContent = isPlaying ? "正在收听" : "点击收听";
+    } else {
+      textEl.textContent = isPlaying ? "Now Listening" : "Click to Listen";
+    }
+  });
+}
+
+/* ==========================================================================
+   9. 绘制与控制 Constellation 星轨地图 (抽象连线与点击导航逻辑)
    ========================================================================== */
 
 function getConstellationCoords(cx, cy, r) {
@@ -619,7 +689,7 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ==========================================================================
-   9. 双语海报卡片 Canvas 生成器 (Poster Generator)
+   10. 双语海报卡片 Canvas 生成器 (Poster Generator)
    ========================================================================== */
 const generateCardBtn = document.getElementById('generateCardBtn');
 const cardResultWrap = document.getElementById('cardResultWrap');
@@ -827,7 +897,7 @@ function wrapText(context, text, x, y, maxWidth, lineHeight) {
 }
 
 /* ==========================================================================
-   10. 基础绑定与初始化
+   11. 基础绑定与初始化
    ========================================================================== */
 const scrollHint = document.getElementById('scrollHint');
 if (scrollHint) {
@@ -837,8 +907,9 @@ if (scrollHint) {
   });
 }
 
-// 默认中文加载
+// 页面载入初始化
 window.addEventListener('DOMContentLoaded', () => {
   setLanguage('zh');
   updateProgressUI();
+  initPlayControls();
 });

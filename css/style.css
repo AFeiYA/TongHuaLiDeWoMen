@@ -1683,3 +1683,168 @@ body {
 .track-card, .track-card__front, .track-card__detail, .track-card__interact {
   display: none !important;
 }
+
+/* ========== CLICKABLE TRACK INDICATOR ========== */
+.track-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 2.5rem;
+  padding: 0.45rem 1.2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 30px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0;
+  transform: translateY(10px);
+  max-width: fit-content;
+}
+
+.track-section.active .track-indicator {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.track-indicator:hover {
+  background: rgba(201, 168, 76, 0.08);
+  border-color: rgba(201, 168, 76, 0.35);
+  box-shadow: 0 4px 15px rgba(201, 168, 76, 0.12);
+  transform: translateY(-1px);
+}
+
+.track-indicator:active {
+  transform: translateY(1px);
+}
+
+.pulse-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.2px solid var(--gold);
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 7px;
+  color: var(--gold);
+  padding-left: 1.5px; /* visual center for play triangle */
+  transition: all 0.3s ease;
+  line-height: 1;
+}
+
+.track-indicator.playing .pulse-dot {
+  background-color: var(--gold);
+  border-color: var(--gold);
+  box-shadow: 0 0 10px var(--gold);
+  animation: pulse-ring 2.2s infinite;
+  color: #040815;
+  padding-left: 0;
+  font-size: 0; /* hide play triangle text when active */
+}
+
+/* Hide the old static dot CSS rules to avoid conflicts */
+.track-indicator > .pulse-dot:not(:empty) {
+  /* custom rules overrides */
+}
+
+/* ========== 12 INDIVIDUAL TRACK THEME COLORS ========== */
+.track-section[data-track="1"] {
+  --theme-color: #d4b26f;
+  --theme-color-rgb: 212, 178, 111;
+  --theme-color-glow: rgba(212, 178, 111, 0.08);
+}
+.track-section[data-track="2"] {
+  --theme-color: #70939a;
+  --theme-color-rgb: 112, 147, 154;
+  --theme-color-glow: rgba(112, 147, 154, 0.08);
+}
+.track-section[data-track="3"] {
+  --theme-color: #d28b47;
+  --theme-color-rgb: 210, 139, 71;
+  --theme-color-glow: rgba(210, 139, 71, 0.08);
+}
+.track-section[data-track="4"] {
+  --theme-color: #a87ed8;
+  --theme-color-rgb: 168, 126, 216;
+  --theme-color-glow: rgba(168, 126, 216, 0.08);
+}
+.track-section[data-track="5"] {
+  --theme-color: #c45b5b;
+  --theme-color-rgb: 196, 91, 91;
+  --theme-color-glow: rgba(196, 91, 91, 0.08);
+}
+.track-section[data-track="6"] {
+  --theme-color: #3e8469;
+  --theme-color-rgb: 62, 132, 105;
+  --theme-color-glow: rgba(62, 132, 105, 0.08);
+}
+.track-section[data-track="7"] {
+  --theme-color: #ce8d63;
+  --theme-color-rgb: 206, 141, 99;
+  --theme-color-glow: rgba(206, 141, 99, 0.08);
+}
+.track-section[data-track="8"] {
+  --theme-color: #d66f95;
+  --theme-color-rgb: 214, 111, 149;
+  --theme-color-glow: rgba(214, 111, 149, 0.08);
+}
+.track-section[data-track="9"] {
+  --theme-color: #4f8ea5;
+  --theme-color-rgb: 79, 142, 165;
+  --theme-color-glow: rgba(79, 142, 165, 0.08);
+}
+.track-section[data-track="10"] {
+  --theme-color: #966fd6;
+  --theme-color-rgb: 150, 111, 214;
+  --theme-color-glow: rgba(150, 111, 214, 0.08);
+}
+.track-section[data-track="11"] {
+  --theme-color: #d47a55;
+  --theme-color-rgb: 212, 122, 85;
+  --theme-color-glow: rgba(212, 122, 85, 0.08);
+}
+.track-section[data-track="12"] {
+  --theme-color: #d6ba73;
+  --theme-color-rgb: 214, 186, 115;
+  --theme-color-glow: rgba(214, 186, 115, 0.08);
+}
+
+/* Dynamically glowing background gradient */
+body {
+  --body-theme-glow: rgba(201, 168, 76, 0.03);
+  background: radial-gradient(circle at 50% 50%, var(--body-theme-glow) 0%, var(--bg-deep) 100%) !important;
+  transition: background 1.5s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+/* Override active section components to use their individual theme colors */
+.track-section.active .track-section-num {
+  color: var(--theme-color);
+}
+.track-section.active .pulse-dot {
+  border-color: var(--theme-color);
+  color: var(--theme-color);
+}
+.track-section.active .track-indicator.playing .pulse-dot {
+  background-color: var(--theme-color);
+  border-color: var(--theme-color);
+  box-shadow: 0 0 12px var(--theme-color);
+  color: #040815;
+}
+.track-section.active .track-indicator.playing .indicator-text {
+  color: var(--theme-color);
+}
+.track-section.active .track-indicator:hover {
+  background: rgba(var(--theme-color-rgb), 0.08);
+  border-color: rgba(var(--theme-color-rgb), 0.35);
+  box-shadow: 0 4px 15px rgba(var(--theme-color-rgb), 0.12);
+}
+.track-section.active .links-row a:hover {
+  color: var(--theme-color);
+  border-bottom-color: var(--theme-color);
+  text-shadow: 0 0 8px rgba(var(--theme-color-rgb), 0.45);
+}
+.track-section.active .track-number-bg {
+  color: rgba(var(--theme-color-rgb), 0.035) !important;
+}
