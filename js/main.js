@@ -1,6 +1,6 @@
 /**
  * 童话里的我们 / A Fairytale Called Us — Main JavaScript (Editorial Magazine Edition)
- * 功能：星光粒子 · 3D 封面 · 滚动足迹记录 · 点击式后台播放 · 浮动星图雷达导航 · 双语化 (CN/EN) · 杂志海报 Canvas 导出
+ * 功能：星光粒子 · 3D 封面 · 滚动足迹记录 · 点击式后台播放 · 浮动星图雷达导航 · 双语化 (CN/EN) · 叙事折叠展开 · 杂志海报 Canvas 导出
  */
 
 /* ==========================================================================
@@ -156,7 +156,6 @@ const TRANSLATIONS = {
     nicknamePlaceholder: "你的昵称",
     emailPlaceholder: "你的邮箱",
     msgPlaceholder: "想对我们说的话（选填）",
-    subscribeThanks: "感谢你的关注！我们会在童话的下一章与你相见 ✨",
     mapUs: "我们",
     
     // 角色分身标签
@@ -176,63 +175,74 @@ const TRANSLATIONS = {
     archetypes: [
       { 
         id: 1, name: "稻草人", song: "我没有大脑", 
-        desc: "寒风拂过空旷的麦田，只剩下干燥的纤维与泥土。我们常常陷入聪明的傲慢与得失的计算，却在落叶的曲线中怀疑自我的存在。我不想要什么大脑，因为思考是痛苦的牢，而沉默是无知的逃。在自我怀疑的缝隙里，心底最真实的声音终会疯狂地叫嚣，宣告你比他们想象的更骄傲。",
+        short: "泥土承载着干燥的纤维，在秋风的边缘丈量虚无。",
+        full: "当我们试图用繁复的逻辑与精确的度量来确认自我的刻度，却不知理性本身即是深渊的投影。在思维停止喧嚣的缝隙里，那句无声的叹息，是否才是我们唯一的立足之地？<br/><br/>✨ <i>愿你接纳脑海中所有的杂音，在每一个感到迷茫的深夜里，都能拥抱那个虽然笨拙、却始终真诚起舞的自己。</i>",
         quote: "“我不想要什么大脑，如果它只会制造烦恼。可我为何，感到了思考？”" 
       },
       { 
         id: 2, name: "铁皮人", song: "生锈的心", 
-        desc: "酸雨无情地侵蚀着钢铁关节，霓虹之下只剩冷冰冰的零件。为了抵御背叛与伤害，我们为自己焊死在完美的防线里，却也隔绝了所有的温度。这是一颗生锈的心跳动时的刺耳叹息。齿轮绝望地呻吟，直到某个人在人群中唤起那个尘封的名字，让坚硬的盔甲在温热的震颤中逐渐瓦解。",
+        short: "坚硬是时间的妥协，冷冰冰的秩序包裹着拒绝。",
+        full: "为了防范风暴的侵蚀，我们用铁锈修筑起最牢固的城池，却在绝对的安全中走向了麻木。这不仅是金属的呻吟，更是在寂静的深处，那场以防备为名的漫长自我流放。<br/><br/>✨ <i>愿你总能遇见那个让你放下防备、卸下盔甲的人，在一缕温柔的日光下，重新感受心脏温热的跳动。</i>",
         quote: "“我有一颗生锈的心，它跳动时有刺耳的声音。但当你在人群中叫我，它开始剧烈震颤。”" 
       },
       { 
         id: 3, name: "胆小狮子", song: "害怕的人", 
-        desc: "窗外的狂风在黑暗中肆虐，战栗的困兽缩在王座的一角。金色的鬃毛掩盖了湿透的脊背，咆哮成了虚张声势的喉咙。英勇的传闻下掩埋着普通人微弱的哭泣，但真正的勇气绝非从不畏惧，而是即使膝盖在打结、呼吸在结冰，依然带着浑身的颤抖向深渊迈出最后一步的悲壮。",
+        short: "王座的阴影里，颤抖与冠冕同在。",
+        full: "金色的鬃毛从不是为了征服，而是为了在虚张声势的咆哮中，掩盖那份无法消解的脆弱。当神话剥离，真正的觉醒在于直面膝盖的冰冷，带着摇摇欲坠的自我，一步步走向风暴。<br/><br/>✨ <i>愿你在黑夜的风暴里抱紧自己，别怕颤抖的每一步，你那带着恐惧前行的背影，比任何战歌都更加英勇。</i>",
         quote: "“勇气不是从不畏惧，而是带着浑身的恐惧，依然向那片深渊迈出最后一步。”" 
       },
       { 
         id: 4, name: "爱丽丝", song: "兔子洞", 
-        desc: "重力被成人世界彻底废弃，常识在半空中摔碎成斑斓的废气。在这个兔子洞里，规则如泡沫般破裂，疯子成了清醒的唯一。喝下名为“现实”的药水，看清齿轮背后的残酷与纯粹。这不仅是一场荒诞的下坠，更是成长过程中，在认知崩塌与失重状态下学会心碎的赞歌。",
+        short: "在重力坍塌的象限，常识与逻辑摔碎成斑斓的尘埃。",
+        full: "这并非是一次迷失的坠落，而是坐标系重建的必然。当世界在眼前颠倒，唯有接纳失重的眩晕，在无底的深渊中，重新定义何为真实的呼吸。<br/><br/>✨ <i>愿你在失重与跌落的瞬间找到降落伞，明白每一次认知的坍塌，都是为了在废墟上重建一间更明亮的屋子。</i>",
         quote: "“天花板在脚下，地板在云端抽离。在这里，疯子才是清醒的唯一。”" 
       },
       { 
         id: 5, name: "匹诺曹", song: "说谎的木偶", 
-        desc: "提线操纵着僵硬的笑容，面具之下是冷冰冰的应酬。在这一场永不谢幕的社交博弈中，我们练习最精准的微笑，用无数个金色的借口堆砌起合群的乐园。鼻子在空气中突兀地隆起，发出齿轮崩坏的绝望呻吟。当剪断线的那一刻，木头身躯是否能承受粉身碎骨的真实与自由？",
+        short: "提线在虚空中纵横，编织着最为得体的姿态。",
+        full: "在应酬与合群的宏大博弈中，我们用精致的木头零件堆砌成讨喜的假象。那突兀伸长的并非鼻子，而是被扭曲的本真。当线绳剪断，迎来的究竟是自由，还是虚无的坠地？<br/><br/>✨ <i>愿你终能挣脱无形的引线，在虚妄的世界里勇敢地摘下面具，坦然享受只属于你自己的真实与呼吸。</i>",
         quote: "“跳舞吧说谎的木偶，反正这世界也是一座巨大的木偶秀。”" 
       },
       { 
         id: 6, name: "小红帽", song: "森林", 
-        desc: "妈妈温热的嘱托挡不住林间迷雾的诱惑，大路在落叶碎石下隐去，最鲜艳的红斗篷被荆棘撕扯成碎片。野兽优雅地谈吐，天真成了森林里最昂贵的祭品。病榻上的外婆已然解构为生存的投影。我们终于推开那扇门，告别了童年的温室，在危险与新生中蜕变为丛林的一部分。",
+        short: "边界在大雾中隐去，红色的衣角被荆棘撕扯成岁月的碎片。",
+        full: "森林中没有避风的温室，只有在野兽的吐息与阴影的试探中，逐渐与危险融为一体的骨骼。走出这片绿意的人，已在无声的蜕变里告别了最初的镜中人。<br/><br/>✨ <i>愿你独自穿过迷雾重重的荆棘时，不被黑暗吞噬。当你走出这片森林，会长出坚硬的骨骼，却依然怀揣着温热的心。</i>",
         quote: "“穿过这片森林，脱掉红色的梦境。森林深处没有外婆，只有长大的我。”" 
       },
       { 
         id: 7, name: "睡美人", song: "沉睡的时间", 
-        desc: "月光掠过蔷薇的尖刺，城堡在大雪中静止了一百年。他们步履匆匆地催促着结果，我却锁住所有的门窗，将自己酿成一罐琥珀里的静止。有些结越用力越情绪缠绕，不如坐下来听听这漫长的寂寥。当尘埃落定、声音凋零，时间终会成为宽容的出口，在绝对的静止里给你自由。",
+        short: "时间在静止的城堡中凝固，成为一滴淡金色的琥珀。",
+        full: "外界疯狂地索求着答案与果实，而我只想在此刻将自我封存。有些迷局越是挣扎越是深陷，不如在漫长的沉默中等待喧嚣退潮，让静止本身成为最宽容的救赎。<br/><br/>✨ <i>愿你在无人问津的时光里安心沉淀，不急不躁。请相信，那些在绝对静止中积蓄的能量，终会化作你破茧而出的双翼。</i>",
         quote: "“等这一场雨淋透了贪婪的渴求，时间是默契的好友，也是宽容的出口。”" 
       },
       { 
         id: 8, name: "小王子", song: "编号B-612的告别", 
-        desc: "只有三座火山大小的星球上，唯一的玫瑰正静静枯萎。我们曾以为远方有数不清的灯火和更美的风景，却直到在荒漠中降落、听懂狐狸的麦浪誓言时，才明白被驯服的珍贵。身体不过是沉重的外壳，在漫天星星的笑声里，明知代价是虚无与痛苦，也要回头去守护那朵唯一的纯粹。",
+        short: "孤星上的火山如此微小，却承载着宇宙中唯一的羁绊。",
+        full: "远方的繁星不过是冰冷的坐标，而我们明知爱的代价是脆弱、分离与虚无，依然选择褪去沉重的躯壳，回归到那朵在风中渐渐凋零的牵挂里。<br/><br/>✨ <i>愿在漫天繁星的笑声中，你总能望见属于你的那一朵花；愿你付出的每一份热忱与守护，都能在这个宇宙里得到温柔的回响。</i>",
         quote: "“我的玫瑰正在银河某个角落枯萎，我却在这陌生的星球慢慢掉泪。”" 
       },
       { 
         id: 9, name: "人鱼公主", song: "声音", 
-        desc: "我们曾拥有能平息海洋风暴的骄傲歌喉，却在遇见尘世的光亮时感到了贫穷。割断与深海最后的牵绊，将最纯净的声音换成双脚走向陆地的剧烈刀尖痛。爱是自愿的残缺，觉醒是华丽的自虐。即使在彩虹与泡沫的幻灭中写下终篇，这首无声的绝唱却听见了自己的灵魂。",
+        short: "拥有平息风暴的歌喉，却甘愿在沙滩的烈日下走向无声。",
+        full: "当双脚每一次踩在刀尖上，残缺的觉醒便伴随着剧痛生长。这是一场关于代价的默剧：当外界的声响归于寂灭，灵魂深处的共鸣才开始真正显形。<br/><br/>✨ <i>愿你脚踏刀尖奔向光亮时，能被这世界温柔相待；愿你所有的残缺与付出，最终都能在爱与和解里得到最圆满的包容。</i>",
         quote: "“爱是一种自愿的残缺，觉醒是一场华丽的自虐。哪怕结局是幻灭，我不后悔游向这个世界。”" 
       },
       { 
         id: 10, name: "奥兹", song: "魔法师", 
-        desc: "绿色的浓烟与巨大的面具在雷鸣中散去，露出幕布后手忙脚乱摆弄杠杆的瑟缩老汉。权威的幻觉来自于我们心底对未知的恐惧。推倒那堵高墙，解构神坛上的虚张声势。不再仰望，便不再流浪。那颗滚烫的心与沸腾的勇气，从来不需要任何救世主的恩赐，它本就在我们自己的骨骼中生长。",
+        short: "幕布拉开，巨大的神迹不过是杠杆与烟雾的把戏。",
+        full: "我们心底的恐惧，曾为无数个虚无的偶像加冕。推倒那堵隔绝真实的墙，解构高高在上的幻觉。你所渴望的力量与热度，从来不需要神明的恩赐，它本就流淌在你的血管里。<br/><br/>✨ <i>愿你解构所有的偶像与权威，认清自己才是唯一的救世主。愿你站在广阔的大地上，坦然接纳并深爱那个本就完整的自己。</i>",
         quote: "“你给不了大脑，也给不了心。因为那些滚烫的东西，从不需要由你恩赐。”" 
       },
       { 
         id: 11, name: "多萝西", song: "回家的路", 
-        desc: "脱掉磨破的红舞鞋，抖落翡翠城的漫天风雪。原来向外探索的所有远行，都是为了在这一刻向内回头。平凡才是我们最奢侈的天赋，在这升腾着烟火气的卑微日常里，有最真实的水等我入口。回家的路不需要奇迹与魔法，当我不再拼命逃离自我的那一刻，每一步都已然抵达。",
+        short: "磨破的红舞鞋落在泥土中，翡翠城的繁华如碎影般褪去。",
+        full: "所有向外寻求的远行，终会变成一次向内的返航。平凡非但不是平庸，反而是最奢侈的开悟。当你不再试图从自我的身边逃离，每一步所踏之处，皆是终点。<br/><br/>✨ <i>愿你结束所有的流浪与向外寻求，踩在坚实卑微的土地上时能感到安宁。愿每一次向内回头，都是你最好的抵达。</i>",
         quote: "“这就是回家的路，平凡才是我最奢侈的天赋。当我不再逃离，每一步都算抵达。”" 
       },
       { 
         id: 12, name: "我们", song: "我们", 
-        desc: "把所有的疑问倒进炉火，烧成沉默与新生的烟尘。稻草人、铁皮人、胆小狮子以及林间迷失的每个分身，都在这一刻于漫天星空下重逢和解。生命并非支离破碎的片段，而是包容了疑问、脆弱、面具与沉默的完整旅程。在这片星轨的交汇处，我们自己，就是这个荒诞宇宙的终极证据。",
-        quote: "“在这个荒诞的宇宙里补全证据，原来我们就是童话的本身。”" 
+        short: "炉火中灰烬明灭，所有的角色在星轨的交汇处和解重逢。",
+        full: "我们并非支离破碎的片段，而是包容了怀疑、防御、伪装与残缺的完整织锦。在这个看似荒诞冷酷的宇宙里，我们本身，就是那首未完的终极童话。<br/><br/>✨ <i>愿你拥抱自己所有的残缺、脆弱与面具，在这浩瀚的星轨下，与每一个阶段的自己握手言和。你就是最美的童话。</i>" 
       }
     ],
     
@@ -293,63 +303,75 @@ const TRANSLATIONS = {
     archetypes: [
       { 
         id: 1, name: "Scarecrow", song: "The Hollow", 
-        desc: "Cold wind sweeps through the barren fields, leaving only dry straw and soil. We tangle ourselves in calculating gains and losses, yet find the echo of our worth in a falling leaf. This track explores the struggle between intellectual overload and raw intuition, whispering a quiet rebellion against standard success.",
+        short: "Dry fibers mapping the void at the edge of autumn wind.",
+        full: "When we seek to measure our existence with intricate logic, we forget that reason itself is a projection of the abyss. In the silent gap where thought ceases, does the wordless sigh become our only ground?<br/><br/>✨ <i>May you find peace in the noise of your mind, and in every wandering night, embrace the raw, beautiful self that never stops dancing.</i>",
         quote: "“I don't want a brain if it only makes trouble. Yet why do I feel the echo of thought?”" 
       },
       { 
         id: 2, name: "Tin Woodman", song: "The Rust", 
-        desc: "Acid rain corrodes our joints under the cold neon glare. To guard against betrayal, we weld ourselves into a perfect armor of indifference, locking out all warmth. This is the screeching sigh of a rusty heart, waiting for a single voice to shatter the metal and set the heartbeat free.",
+        short: "Hardness is time's compromise, wrapping a cold refusal in perfect order.",
+        full: "To guard against the storm, we build fortresses of rust, only to fade into numbness within absolute safety. A quiet sigh of self-exile under the guise of protection.<br/><br/>✨ <i>May you meet someone who gently coaxes you out of your armor, and feel your heart beat warm and free under a ray of tender sunlight.</i>",
         quote: "“I have a rusty heart with a screeching beat. Yet when you call my name, it echoes deep.”" 
       },
       { 
         id: 3, name: "Cowardly Lion", song: "The Coward", 
-        desc: "Heavy shadows tower over the golden mane. Beneath the legend of the mighty king lies a trembling soul shivering in the dark. This song reveals that true courage is not the absence of fear, but the heavy, shivering step taken forward into the abyss when your knees are shaking.",
+        short: "Shadows beneath the crown, where trembling and majesty coexist.",
+        full: "The golden mane is not for conquest, but to mask an unresolvable fragility with a thunderous roar. Awakening begins when we face the chill of our knees and walk forward, fragile and undivided.<br/><br/>✨ <i>May you hold yourself close through the storm. Never fear the shaking steps, for your courage in trembling is more heroic than any battle cry.</i>",
         quote: "“Courage is not the absence of fear, but taking that final step despite trembling knees.”" 
       },
       { 
         id: 4, name: "Alice", song: "The Fall", 
-        desc: "The ceiling becomes the floor, and logic disintegrates in mid-air. Tumble down the rabbit hole where common sense turns into colorful mist, and only the mad remain sane. This track paints a dreamy, chaotic portrait of growing up—learning to let go and accept the beautiful weightlessness of heartbreak.",
+        short: "In the quadrant where gravity collapses, common sense shatters into colorful dust.",
+        full: "This is not a lost fall, but the birth of a new coordinate system. When the world stands on its head, we must embrace the vertigo of weightlessness to redefine what it means to breathe.<br/><br/>✨ <i>May you catch yourself in moments of vertigo, and realize that every shattering belief is but a clearing to build a brighter home.</i>",
         quote: "“The ceiling is below, the floor drifts in the clouds. Here, only the mad remain sane.”" 
       },
       { 
         id: 5, name: "Pinocchio", song: "The Marionette", 
-        desc: "Wooden limbs dance to strings of polite deceit, performing a perfect smile under the spotlight. This theatrical track delves into the heavy toll of social masks and lies we tell to belong, questioning whether the puppet can survive once the strings of safety are severed.",
+        short: "Strings cross in the void, weaving the most polite gestures.",
+        full: "In the grand play of belonging, we assemble wood and paint to simulate warmth. But what elongates is not a nose, it is the distorted truth. When the strings snap, do we meet freedom or empty air?<br/><br/>✨ <i>May you snap the invisible threads of compromise, shed your mask under the neon, and breathe the pure air of your own untamed truth.</i>",
         quote: "“Dance, lying marionette, for the world itself is but a grand puppet show.”" 
       },
       { 
         id: 6, name: "Little Red Riding Hood", song: "The Forest", 
-        desc: "The stone path fades into thick fog, and the bright red cape is shredded by wild thorns. In the deep woods, innocence is the cost of survival, and the elegant beast is but a reflection of our own emerging strength. This is the dark, swelling moment when the child is left behind, and a survivor is born.",
+        short: "Boundaries dissolve in the fog; a splash of red torn by thorns.",
+        full: "There is no sanctuary in the deep woods, only bones that gradually learn to blend with the shadows. The one who emerges from the green has already said goodbye to the reflection in the mirror.<br/><br/>✨ <i>May you walk through the thick brush unharmed. When you emerge from the deep woods, may your bones be strong and your heart remain warm.</i>",
         quote: "“Through this forest, shed the crimson dream. Deep inside, there is no grandmother, only a grown-up me.”" 
       },
       { 
         id: 7, name: "Sleeping Beauty", song: "The Amber", 
-        desc: "Moonlight moves slowly over the thorns as the castle sleeps for a hundred years. While the world rushes to harvest unresolved answers, this song is a sanctuary of stillness—breathing inside the amber of patience, letting the dust settle, and waiting for truth to blossom on its own terms.",
+        short: "Time freezes in the silent castle, suspended as a drop of gold amber.",
+        full: "While the world demands answers, we choose the preservation of the self. Some mazes tighten the more we struggle; let quietness build its own forgiving exit.<br/><br/>✨ <i>May you rest easy in the quiet amber of waiting. Trust that the strength gathered in stillness will one day become the wings of your awakening.</i>",
         quote: "“Let the rain soak the greedy thirst. Time is a silent friend and a forgiving escape.”" 
       },
       { 
         id: 8, name: "The Little Prince", song: "The Rose", 
-        desc: "A tiny planet with three small volcanoes, and a single proud rose left to fade. We wander across galaxies searching for infinite wonders, only to find our hearts anchored to the one we tamed. This nostalgic acoustic piece sings of leaving behind heavy shells to return to our primary responsibility and love.",
+        short: "Volcanic dust on a solitary sphere, holding the only anchor in the galaxy.",
+        full: "The distant stars are but cold coordinates; though we know the cost of caring is loss, we choose to shed our heavy shells and return to the fading rose in the wind.<br/><br/>✨ <i>May you always hear the laughter of your own flower among the stars, and find that every ounce of your devotion echoes gently in the void.</i>",
         quote: "“My rose is fading in some corner of the galaxy, while I weep on this foreign star.”" 
       },
       { 
         id: 9, name: "Little Mermaid", song: "The Silence", 
-        desc: "Once possessing a voice that could calm the ocean storm, we traded it away to walk on land, feeling the sting of blades with every step. This swelling, tragic pop anthem embraces the voluntary wounds of love and the brilliant, silent awakening that arises when our outer voice is stripped away.",
+        short: "Traded the voice that ruled the waves to walk on hot sands, feeling the blade's edge with every stride.",
+        full: "A tragic pop monologue of trade-offs: when the external voice falls silent, the true self begins to resonate in the quiet.<br/><br/>✨ <i>May the world treat your bare steps with kindness as you run toward the light, and may every wound you carry find home in love.</i>",
         quote: "“Love is a voluntary flaw; awakening is a beautiful self-infliction. I do not regret swimming to this world.”" 
       },
       { 
         id: 10, name: "Wizard of Oz", song: "The Curtain", 
-        desc: "The green smoke clears, and the thunderous mask vanishes to reveal a trembling old man pulling levers behind the curtain. We project our fears onto pedestals, feeding the illusion of absolute power. This song calls for the demystification of authority, reminding us that we hold the keys to our own minds.",
+        short: "The curtain parts, reducing grand miracles to levers and smoke.",
+        full: "It is our own fear that crowns the idols we fear. Tear down the wall of illusion; the burning pulse you seek was never a gift to be granted, it flows in your own veins.<br/><br/>✨ <i>May you see through all false gods and recognize your own sovereign strength. Stand tall on the open ground, complete and deeply loved.</i>",
         quote: "“You cannot give a brain, nor a heart. For those burning wonders need no gift from you.”" 
       },
       { 
         id: 11, name: "Dorothy", song: "The Return", 
-        desc: "Kick off the worn-out ruby slippers and let the emerald snow drift away. The long, winding search for magic ends at the rustic wooden door of our own daily life. This warm indie folk tune welcomes the relief of landing, embracing the ordinary, and realizing that coming home is simply returning to yourself.",
+        short: "Worn slippers sinking into the loam; the emerald neon fades like a broken dream.",
+        full: "The outward journey returns inward. Ordinary life is not compromise, but the ultimate awakening. When you stop running from yourself, every step is arrival.<br/><br/>✨ <i>May your long travels end in the peace of the ordinary soil. Every time you turn inward, may you feel the quiet comfort of being home.</i>",
         quote: "“This is the road home, where the ordinary is my most luxurious gift. When I stop running, every step is arrival.”" 
       },
       { 
         id: 12, name: "Us", song: "We Are the Fairytale", 
-        desc: "Toss all doubts into the fireplace and let them burn to quiet ash. The scarecrow, the tin woodman, and every lost shadow gather under the infinite starlight to reconcile. In this final, soaring pop symphony, we embrace all our fragmented pieces, realizing that we are the fairytale itself.",
-        quote: "“In this absurd universe, we are the very evidence of fairytales.”" 
+        short: "Ash glows in the hearth as split shadows reconcile under the starry sky.",
+        full: "We are not fragments, but a whole tapestry weaving doubt, defense, and awakening. In this cold universe, our existence is the final, wordless fairytale.<br/><br/>✨ <i>May you weave your wounds, masks, and dreams into a single beautiful tapestry. Under the starlight, be at peace with every version of you.</i>",
+        quote: "“Completing the evidence in this absurd universe, we are the fairytale itself.”" 
       }
     ],
     
@@ -419,10 +441,25 @@ function setLanguage(lang) {
       
       if (titleEl) titleEl.textContent = t.name;
       
-      // 读取对应的中英文详细叙事简介
+      // 读取对应的中英文详细叙事与简短格言
       const archData = tr.archetypes.find(a => a.id === t.id);
       if (themeEl && archData) {
-        themeEl.innerHTML = archData.desc;
+        const shortSpan = themeEl.querySelector('.theme-short');
+        const moreSpan = themeEl.querySelector('.theme-more');
+        const moreBtn = themeEl.querySelector('.btn-read-more');
+        if (shortSpan && moreSpan && moreBtn) {
+          shortSpan.innerHTML = archData.short;
+          moreSpan.innerHTML = archData.full;
+          
+          const isExpanded = moreSpan.classList.contains('expanded');
+          if (isExpanded) {
+            moreSpan.style.display = "inline";
+            moreBtn.textContent = (currentLang === 'zh') ? "收起 －" : "Collapse －";
+          } else {
+            moreSpan.style.display = "none";
+            moreBtn.textContent = (currentLang === 'zh') ? "展开叙事 ＋" : "Read Narrative ＋";
+          }
+        }
       }
       
       if (lyricsPre) {
@@ -435,8 +472,6 @@ function setLanguage(lang) {
 
   // 刷新所有播放控制按钮的文本与状态
   updateIndicators();
-
-
 
   // 重新绘制双星轨 Canvas (浮动雷达与底部画册)
   drawRadarMap();
@@ -643,7 +678,31 @@ function updateIndicators() {
 }
 
 /* ==========================================================================
-   10. 绘制与控制 Constellation 星轨地图 (抽象连线与点击导航逻辑)
+   10. 极简风情折叠逻辑绑定 (Description Expand/Collapse)
+   ========================================================================== */
+function initAccordion() {
+  document.querySelectorAll('.track-section-theme').forEach(themeEl => {
+    const moreSpan = themeEl.querySelector('.theme-more');
+    const btn = themeEl.querySelector('.btn-read-more');
+    if (moreSpan && btn) {
+      btn.addEventListener('click', () => {
+        const isExpanded = moreSpan.classList.contains('expanded');
+        if (isExpanded) {
+          moreSpan.classList.remove('expanded');
+          moreSpan.style.display = "none";
+          btn.textContent = (currentLang === 'zh') ? "展开叙事 ＋" : "Read Narrative ＋";
+        } else {
+          moreSpan.classList.add('expanded');
+          moreSpan.style.display = "inline";
+          btn.textContent = (currentLang === 'zh') ? "收起 －" : "Collapse －";
+        }
+      });
+    }
+  });
+}
+
+/* ==========================================================================
+   11. 绘制与控制 Constellation 星轨地图 (抽象连线与点击导航逻辑)
    ========================================================================== */
 
 function getConstellationCoords(cx, cy, r) {
@@ -835,7 +894,7 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ==========================================================================
-   11. 双语海报卡片 Canvas 生成器 (Poster Generator)
+   12. 双语海报卡片 Canvas 生成器 (Poster Generator)
    ========================================================================== */
 const generateCardBtn = document.getElementById('generateCardBtn');
 const cardResultWrap = document.getElementById('cardResultWrap');
@@ -1043,7 +1102,7 @@ function wrapText(context, text, x, y, maxWidth, lineHeight) {
 }
 
 /* ==========================================================================
-   12. 基础绑定与初始化
+   13. 基础绑定与初始化
    ========================================================================== */
 const scrollHint = document.getElementById('scrollHint');
 if (scrollHint) {
@@ -1058,4 +1117,5 @@ window.addEventListener('DOMContentLoaded', () => {
   setLanguage('zh');
   updateProgressUI();
   initPlayControls();
+  initAccordion();
 });

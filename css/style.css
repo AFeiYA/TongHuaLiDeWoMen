@@ -1920,3 +1920,62 @@ body {
   line-height: 2.2 !important;
   letter-spacing: 0.08em !important;
 }
+
+/* ========== ACCORDION DESCRIPTION & PLAY BUTTON LAYOUT ========== */
+
+.track-meta .track-indicator {
+  margin-top: 1.2rem !important;
+  margin-bottom: 2.2rem !important;
+}
+
+.track-section-theme {
+  font-family: var(--font-serif) !important;
+  font-size: 0.95rem !important;
+  line-height: 1.9 !important;
+  color: var(--text-dim) !important;
+  margin-bottom: 2.5rem !important;
+  transition: all 0.4s ease;
+}
+
+.theme-short {
+  display: inline;
+}
+
+.theme-more {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.theme-more.expanded {
+  display: inline !important;
+  opacity: 1 !important;
+}
+
+.btn-read-more {
+  display: inline-block;
+  background: none;
+  border: none;
+  color: var(--theme-color);
+  font-family: var(--font-serif);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  padding: 0;
+  margin-left: 0.4rem;
+  cursor: pointer;
+  opacity: 0.75;
+  transition: all 0.3s ease;
+  user-select: none;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.btn-read-more:hover {
+  opacity: 1;
+  letter-spacing: 0.12em;
+  text-shadow: 0 0 5px rgba(var(--theme-color-rgb), 0.3);
+}
+
+.btn-read-more:focus {
+  outline: none;
+}
