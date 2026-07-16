@@ -1273,3 +1273,413 @@ body {
     padding: 0.35rem 0.7rem;
   }
 }
+
+/* ==========================================================================
+   📀 EDITORIAL MAGAZINE & LYRIC BOOK LAYOUT
+   ========================================================================== */
+
+/* ---------- Act Separator ---------- */
+.act-separator {
+  position: relative;
+  text-align: center;
+  padding: 18vh 2rem 8vh;
+  margin-top: 5vh;
+  overflow: hidden;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.act-separator__number {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--gold);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  opacity: 0.75;
+}
+
+.act-separator__title {
+  font-family: var(--font-chinese);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--text-bright);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.8rem;
+  position: relative;
+}
+
+.act-separator__title::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  margin: 1.5rem auto 0;
+  opacity: 0.5;
+}
+
+.act-separator__subtitle {
+  font-family: var(--font-english);
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* ---------- Track Section ---------- */
+.track-section {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  padding: 12vh 6vw;
+  overflow: hidden;
+  border-bottom: none;
+  z-index: 2;
+}
+
+.track-spread {
+  display: flex;
+  gap: 6vw;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: stretch;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0.25;
+  transform: translateY(20px);
+}
+
+.track-section.active .track-spread {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Alternate Left/Right Columns on Desktop */
+@media (min-width: 992px) {
+  .track-section:nth-of-type(even) .track-spread {
+    flex-direction: row-reverse;
+  }
+}
+
+/* Giant Decorative Watermark Number */
+.track-number-bg {
+  position: absolute;
+  font-family: var(--font-serif);
+  font-size: 32rem;
+  font-weight: 900;
+  color: rgba(201, 168, 76, 0.015);
+  top: 50%;
+  right: 6%;
+  transform: translateY(-50%);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  transition: color 0.5s ease;
+}
+
+.track-section.active .track-number-bg {
+  color: rgba(201, 168, 76, 0.035);
+}
+
+@media (min-width: 992px) {
+  .track-section:nth-of-type(even) .track-number-bg {
+    left: 6%;
+    right: auto;
+  }
+}
+
+/* Meta/Info Column */
+.track-meta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+  position: relative;
+}
+
+.track-section-num {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  opacity: 0.85;
+}
+
+.track-section-title {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-bright);
+  line-height: 1.25;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+.track-section-theme {
+  font-family: var(--font-chinese);
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: var(--text-dim);
+  margin-bottom: 3rem;
+  letter-spacing: 0.05em;
+  opacity: 0.9;
+}
+
+/* Immersive Play Indicator */
+.track-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.track-section.active .track-indicator {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pulse-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: var(--gold);
+  box-shadow: 0 0 10px var(--gold);
+  animation: pulse-ring 2.2s infinite;
+}
+
+.indicator-text {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+/* Listener Links */
+.track-links {
+  margin-top: auto;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.links-label {
+  display: block;
+  font-family: var(--font-chinese);
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+.links-row {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.links-row a {
+  font-family: var(--font-chinese);
+  font-size: 0.88rem;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.15rem;
+  transition: all 0.3s ease;
+}
+
+.links-row a:hover {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+  text-shadow: 0 0 8px rgba(201, 168, 76, 0.45);
+}
+
+/* Lyrics Column */
+.track-lyrics-col {
+  flex: 1.2;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+
+.track-lyrics-col pre {
+  font-family: var(--font-chinese);
+  font-size: 1.12rem;
+  line-height: 2.1;
+  color: var(--text);
+  white-space: pre-wrap;
+  word-break: break-word;
+  text-align: left;
+  opacity: 0.75;
+  letter-spacing: 0.06em;
+  transition: all 0.6s ease;
+  width: 100%;
+}
+
+.track-section.active .track-lyrics-col pre {
+  color: var(--text-bright);
+  opacity: 1;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+/* ---------- Responsive Stack ---------- */
+@media (max-width: 991px) {
+  .track-section {
+    padding: 8vh 2rem;
+  }
+  .track-spread {
+    flex-direction: column !important;
+    gap: 3.5rem;
+  }
+  .track-meta {
+    text-align: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 2rem;
+  }
+  .track-indicator {
+    justify-content: center;
+  }
+  .track-links {
+    width: 100%;
+  }
+  .links-row {
+    justify-content: center;
+  }
+  .track-lyrics-col pre {
+    font-size: 1.05rem;
+    line-height: 2;
+    text-align: center;
+  }
+  .track-number-bg {
+    font-size: 18rem;
+    top: 5%;
+    right: 5%;
+    transform: none;
+    opacity: 0.01;
+  }
+}
+
+/* ---------- FLOATING CONSTEL RADAR ---------- */
+.floating-radar {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(8, 12, 28, 0.85);
+  border: 1px solid rgba(201, 168, 76, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), 
+              0 0 15px rgba(201, 168, 76, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.floating-radar:hover {
+  transform: scale(1.08) translateY(-2px);
+  border-color: var(--gold);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7), 
+              0 0 25px rgba(201, 168, 76, 0.35);
+}
+
+.radar-pulse {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  animation: pulse-ring 2.5s infinite;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.radar-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+  user-select: none;
+  filter: drop-shadow(0 0 5px rgba(201, 168, 76, 0.5));
+}
+
+.radar-container {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  width: 290px;
+  height: 290px;
+  background: rgba(5, 9, 21, 0.94);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  border-radius: 20px;
+  padding: 0.8rem;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.85), 
+              0 0 30px rgba(201, 168, 76, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  opacity: 0;
+  transform: scale(0.85) translateY(15px);
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.floating-radar.expanded .radar-container {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  pointer-events: auto;
+}
+
+#radarCanvas {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 576px) {
+  .floating-radar {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+  .radar-container {
+    right: -10px;
+    width: 260px;
+    height: 260px;
+  }
+}
+
+/* Keyframes */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+/* Hide old interactive form elements & old card styles */
+.track-card, .track-card__front, .track-card__detail, .track-card__interact {
+  display: none !important;
+}

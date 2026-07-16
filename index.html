@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>童话里的我们 — The Us In Fairytales</title>
-  <meta name="description" content="《童话里的我们》是一张关于"人成为自己"的概念专辑。12首歌像12扇门，每一扇门后都有一种我们熟悉却难以命名的心理状态。" />
+  <meta name="description" content="《童话里的我们》是一张关于'人成为自己'的概念专辑。12首歌像12扇门，每一扇门后都有一种我们熟悉却难以命名的心理状态。" />
   <meta property="og:title" content="童话里的我们 — The Us In Fairytales" />
   <meta property="og:description" content="12首歌像12扇门，每一扇门后都有一种我们熟悉却难以命名的心理状态。" />
   <meta property="og:image" content="TongHuaLiDeWoMen.png" />
   <link rel="icon" href="TongHuaLiDeWoMen.png" type="image/png" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&family=Cinzel:wght@400;700;900&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Serif+SC:wght@300;500;700&family=Inter:wght@300;400;600&display=swap">
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -19,6 +19,15 @@
   <div class="lang-switcher" id="langSwitcher">
     <button class="lang-btn active" data-lang="zh">中</button>
     <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+
+  <!-- ========== FLOATING STAR NAV ========== -->
+  <div class="floating-radar" id="floatingRadar" title="Starlight Map / 星图">
+    <div class="radar-pulse"></div>
+    <div class="radar-icon">🌌</div>
+    <div class="radar-container" id="radarContainer">
+      <canvas id="radarCanvas"></canvas>
+    </div>
   </div>
 
   <!-- ========== HERO ========== -->
@@ -49,37 +58,43 @@
     </div>
   </section>
 
-  <!-- ========== 曲目展示区 ========== -->
+  <!-- ========== 曲目展示区 (杂志排版式) ========== -->
   <section id="tracklist" class="tracklist">
 
-    <!-- ===== 第一幕：迷失 ===== -->
-    <div class="act" data-act="1">
-      <div class="act__header">
-        <span class="act__number">第一幕</span>
-        <h2 class="act__title" data-i18n="act1Title">迷失</h2>
-        <p class="act__subtitle">Tracks 1 – 3</p>
-      </div>
+    <!-- ===== Act 1 Divider ===== -->
+    <div class="act-separator" id="act-1">
+      <span class="act-separator__number" data-i18n="act1Num">Act I</span>
+      <h2 class="act-separator__title" data-i18n="act1Title">迷失</h2>
+      <p class="act-separator__subtitle" data-i18n="act1Subtitle">第一幕 / Lost</p>
+    </div>
 
-      <!-- Track 01 -->
-      <article class="track-card" data-track="1">
-        <div class="track-card__front" role="button" tabindex="0" aria-expanded="false">
-          <span class="track-card__number">01</span>
-          <div class="track-card__info">
-            <p class="track-card__song">《我没有大脑》</p>
-            <p class="track-card__theme">自我怀疑与价值感</p>
+    <!-- Track 01 -->
+    <section class="track-section" id="track-1" data-track="1">
+      <span class="track-number-bg">01</span>
+      <div class="track-spread">
+        <div class="track-meta">
+          <span class="track-section-num">Track 01</span>
+          <h3 class="track-section-title"><span class="track-song-name">《我没有大脑》</span></h3>
+          <p class="track-section-theme">自我怀疑与价值感</p>
+          
+          <div class="track-indicator">
+            <span class="pulse-dot"></span>
+            <span class="indicator-text" data-i18n="nowPlaying">正在阅读与收听</span>
           </div>
-          <span class="track-card__toggle">＋</span>
+
+          <div class="track-links">
+            <span class="links-label" data-i18n="listenLabel">🔗 在其他平台收听</span>
+            <div class="links-row">
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">Spotify</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">Apple Music</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">YouTube Music</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">网易云</a>
+            </div>
+          </div>
         </div>
-        <div class="track-card__detail" hidden>
-          <div class="track-card__links">
-            <span class="track-card__links-label">🔗 在其他平台收听</span>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--spotify">Spotify</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--apple">Apple Music</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--youtube">YouTube Music</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--netease">网易云音乐</a>
-          </div>
-          <div class="track-card__lyrics"><h4>歌词</h4><pre>
-(Intro: 寒风穿过麦田的声音，吉他单音勾勒出寂寥感)
+        
+        <div class="track-lyrics-col">
+          <pre>(Intro: 寒风穿过麦田的声音，吉他单音勾勒出寂寥感)
 
 (Verse 1)
 月亮在云层里　像一枚褪色的银币
@@ -90,8 +105,8 @@
 (Pre-Chorus)
 人们说智慧是　一种闪光的硬物
 能看清远方的路　和命运的地图
-我摸着胸口　只有干燥的纤维和土
-在每一个深夜　把自己反复地缝补
+I'm touching my chest, but there's only dry fiber and dirt.
+In the deepest night, I patch myself up again and again.
 
 (Chorus)
 我不想要什么大脑　如果它只会制造烦恼
@@ -118,48 +133,40 @@
 可如果沉默是无知的逃　我愿用余生换一次思考
 哪怕代价是　被烈火焚烧
 
-(Outro)
+(Outro: 吉他旋律逐渐消失，只剩下风声)
 我没有大脑...
-可我为何...感到了思考...</pre></div>
-          <div class="track-card__interact"><h4>💬 互动：这首歌唱的是谁？</h4>
-            <form class="interact-form" data-track-name="01 我没有大脑">
-              <div class="interact-form__left">
-                <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
-                <label>为什么？<textarea name="why" placeholder="说说你的理由…"></textarea></label>
-              </div>
-              <div class="interact-form__right">
-                <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" placeholder="如果愿意，写下来…"></textarea></label>
-              </div>
-              <div class="interact-form__btn-wrap">
-                <button type="submit" class="btn btn--small">提交</button>
-                <span class="interact-form__status-tag" hidden>已保存到本地星图 🌌</span>
-                <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
-              </div>
-            </form>
-          </div>
+可我为何...感到了思考...</pre>
         </div>
-      </article>
+      </div>
+    </section>
 
-      <!-- Track 02 -->
-      <article class="track-card" data-track="2">
-        <div class="track-card__front" role="button" tabindex="0" aria-expanded="false">
-          <span class="track-card__number">02</span>
-          <div class="track-card__info">
-            <p class="track-card__song">《生锈的心》</p>
-            <p class="track-card__theme">情感麻木与防御</p>
+    <!-- Track 02 -->
+    <section class="track-section" id="track-2" data-track="2">
+      <span class="track-number-bg">02</span>
+      <div class="track-spread">
+        <div class="track-meta">
+          <span class="track-section-num">Track 02</span>
+          <h3 class="track-section-title"><span class="track-song-name">《生锈的心》</span></h3>
+          <p class="track-section-theme">情感麻木与防御</p>
+          
+          <div class="track-indicator">
+            <span class="pulse-dot"></span>
+            <span class="indicator-text" data-i18n="nowPlaying">正在阅读与收听</span>
           </div>
-          <span class="track-card__toggle">＋</span>
+
+          <div class="track-links">
+            <span class="links-label" data-i18n="listenLabel">🔗 在其他平台收听</span>
+            <div class="links-row">
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">Spotify</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">Apple Music</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">YouTube Music</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">网易云</a>
+            </div>
+          </div>
         </div>
-        <div class="track-card__detail" hidden>
-          <div class="track-card__links">
-            <span class="track-card__links-label">🔗 在其他平台收听</span>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--spotify">Spotify</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--apple">Apple Music</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--youtube">YouTube Music</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--netease">网易云音乐</a>
-          </div>
-          <div class="track-card__lyrics"><h4>歌词</h4><pre>
-(Verse 1)
+        
+        <div class="track-lyrics-col">
+          <pre>(Verse 1)
 雨水是硫酸 腐蚀了关节点的灿烂
 我站在霓虹里 像一台过时的零件交换
 这副盔甲 坚硬得足以抵挡任何背叛
@@ -169,7 +176,7 @@
 我记得 曾经也有过柔软的瞬间
 在某场大雨前 或是某个告别的地点
 只是岁月太快 而遗忘的动作太熟练
-我把自己 汉死在 完美的防线
+我把自己 焊死在 完美的防线
 
 (Chorus)
 我有一颗生锈的心 它跳动时有刺耳的声音
@@ -195,46 +202,38 @@
 请给我 一点温热的机油
 或者 一滴滚烫的泪流
 哪怕会让我的关节 彻底报废在街头
-我也想看看 那颗心 是不是还在渴求</pre></div>
-          <div class="track-card__interact"><h4>💬 互动：这首歌唱的是谁？</h4>
-            <form class="interact-form" data-track-name="02 生锈的心">
-              <div class="interact-form__left">
-                <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
-                <label>为什么？<textarea name="why" placeholder="说说你的理由…"></textarea></label>
-              </div>
-              <div class="interact-form__right">
-                <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" placeholder="如果愿意，写下来…"></textarea></label>
-              </div>
-              <div class="interact-form__btn-wrap">
-                <button type="submit" class="btn btn--small">提交</button>
-                <span class="interact-form__status-tag" hidden>已保存到本地星图 🌌</span>
-                <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
-              </div>
-            </form>
-          </div>
+我也想看看 那颗心 是不是还在渴求</pre>
         </div>
-      </article>
+      </div>
+    </section>
 
-      <!-- Track 03 -->
-      <article class="track-card" data-track="3">
-        <div class="track-card__front" role="button" tabindex="0" aria-expanded="false">
-          <span class="track-card__number">03</span>
-          <div class="track-card__info">
-            <p class="track-card__song">《害怕的人》</p>
-            <p class="track-card__theme">勇气, 是带着恐惧前行</p>
+    <!-- Track 03 -->
+    <section class="track-section" id="track-3" data-track="3">
+      <span class="track-number-bg">03</span>
+      <div class="track-spread">
+        <div class="track-meta">
+          <span class="track-section-num">Track 03</span>
+          <h3 class="track-section-title"><span class="track-song-name">《害怕的人》</span></h3>
+          <p class="track-section-theme">勇气, 是带着恐惧前行</p>
+          
+          <div class="track-indicator">
+            <span class="pulse-dot"></span>
+            <span class="indicator-text" data-i18n="nowPlaying">正在阅读与收听</span>
           </div>
-          <span class="track-card__toggle">＋</span>
+
+          <div class="track-links">
+            <span class="links-label" data-i18n="listenLabel">🔗 在其他平台收听</span>
+            <div class="links-row">
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">Spotify</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">Apple Music</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">YouTube Music</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">网易云</a>
+            </div>
+          </div>
         </div>
-        <div class="track-card__detail" hidden>
-          <div class="track-card__links">
-            <span class="track-card__links-label">🔗 在其他平台收听</span>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--spotify">Spotify</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--apple">Apple Music</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--youtube">YouTube Music</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--netease">网易云音乐</a>
-          </div>
-          <div class="track-card__lyrics"><h4>歌词</h4><pre>
-(Verse 1)
+        
+        <div class="track-lyrics-col">
+          <pre>(Verse 1)
 影子在墙上 张开贪婪的巨口
 我缩在角落 像一只战栗的困兽
 金色的鬃毛 掩盖了脊背的湿透
@@ -263,9 +262,9 @@
 我只是一个 被勇气 放逐的凡人
 如果没有恐惧 英雄又何必 诞生
 如果没有颤抖 谁能证明 我还有余温
-我穿上名为"坚强"的 最沉重的护身
+我穿上名为“坚强”的 最沉重的护身
 却在寂静里 听见自己 骨骼碎裂的声音
-这王座太冷 像是一座 度金的坟
+这王座太冷 像是一座 镀金的坟
 埋葬了那个 也想哭泣的 普通灵魂
 
 (Bridge)
@@ -283,55 +282,45 @@
 (Outro)
 看啊...那个害怕的人...
 他在发抖...他在流汗...
-但他正走向...他的森林...</pre></div>
-          <div class="track-card__interact"><h4>💬 互动：这首歌唱的是谁？</h4>
-            <form class="interact-form" data-track-name="03 害怕的人">
-              <div class="interact-form__left">
-                <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
-                <label>为什么？<textarea name="why" placeholder="说说你的理由…"></textarea></label>
-              </div>
-              <div class="interact-form__right">
-                <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" placeholder="如果愿意，写下来…"></textarea></label>
-              </div>
-              <div class="interact-form__btn-wrap">
-                <button type="submit" class="btn btn--small">提交</button>
-                <span class="interact-form__status-tag" hidden>已保存到本地星图 🌌</span>
-                <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
-              </div>
-            </form>
-          </div>
+但他正走向...他的森林...</pre>
         </div>
-      </article>
-    </div><!-- /act 1 -->
-
-    <!-- ===== 第二幕：寻找 ===== -->
-    <div class="act" data-act="2">
-      <div class="act__header">
-        <span class="act__number">第二幕</span>
-        <h2 class="act__title" data-i18n="act2Title">寻找</h2>
-        <p class="act__subtitle">Tracks 4 – 6</p>
       </div>
+    </section>
 
-      <!-- Track 04 -->
-      <article class="track-card" data-track="4">
-        <div class="track-card__front" role="button" tabindex="0" aria-expanded="false">
-          <span class="track-card__number">04</span>
-          <div class="track-card__info">
-            <p class="track-card__song">《兔子洞》</p>
-            <p class="track-card__theme">世界的荒诞，认知的坍塌</p>
+    <!-- ===== Act 2 Divider ===== -->
+    <div class="act-separator" id="act-2">
+      <span class="act-separator__number" data-i18n="act2Num">Act II</span>
+      <h2 class="act-separator__title" data-i18n="act2Title">寻找</h2>
+      <p class="act-separator__subtitle" data-i18n="act2Subtitle">第二幕 / Search</p>
+    </div>
+
+    <!-- Track 04 -->
+    <section class="track-section" id="track-4" data-track="4">
+      <span class="track-number-bg">04</span>
+      <div class="track-spread">
+        <div class="track-meta">
+          <span class="track-section-num">Track 04</span>
+          <h3 class="track-section-title"><span class="track-song-name">《兔子洞》</span></h3>
+          <p class="track-section-theme">世界的荒诞，认知的坍塌</p>
+          
+          <div class="track-indicator">
+            <span class="pulse-dot"></span>
+            <span class="indicator-text" data-i18n="nowPlaying">正在阅读与收听</span>
           </div>
-          <span class="track-card__toggle">＋</span>
+
+          <div class="track-links">
+            <span class="links-label" data-i18n="listenLabel">🔗 在其他平台收听</span>
+            <div class="links-row">
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">Spotify</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">Apple Music</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">YouTube Music</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">网易云</a>
+            </div>
+          </div>
         </div>
-        <div class="track-card__detail" hidden>
-          <div class="track-card__links">
-            <span class="track-card__links-label">🔗 在其他平台收听</span>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--spotify">Spotify</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--apple">Apple Music</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--youtube">YouTube Music</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--netease">网易云音乐</a>
-          </div>
-          <div class="track-card__lyrics"><h4>歌词</h4><pre>
-[Verse 1]
+        
+        <div class="track-lyrics-col">
+          <pre>[Verse 1]
 天花板在脚下　地板在云端抽离
 重力是　被成人世界　废弃的逻辑
 我抓不住　一只时钟的尾羽
@@ -356,7 +345,7 @@
 别试图呼救　你的声音　本身就是一种　幻梦
 
 [Verse 3]
-喝下一瓶　名为"现实"的药水
+喝下一瓶　名为“现实”的药水
 看一看　世界背后　长出的脊髓
 每一个齿轮　都在嘲笑　你的纯粹
 成长就是　在荒诞里　学会心碎
@@ -374,46 +363,38 @@
 
 [Outro]
 往下掉...这里没有出口...
-只有...更深...更美的...空。</pre></div>
-          <div class="track-card__interact"><h4>💬 互动：这首歌唱的是谁？</h4>
-            <form class="interact-form" data-track-name="04 兔子洞">
-              <div class="interact-form__left">
-                <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
-                <label>为什么？<textarea name="why" placeholder="说说你的理由…"></textarea></label>
-              </div>
-              <div class="interact-form__right">
-                <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" placeholder="如果愿意，写下来…"></textarea></label>
-              </div>
-              <div class="interact-form__btn-wrap">
-                <button type="submit" class="btn btn--small">提交</button>
-                <span class="interact-form__status-tag" hidden>已保存到本地星图 🌌</span>
-                <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
-              </div>
-            </form>
-          </div>
+只有...更深...更美的...空。</pre>
         </div>
-      </article>
+      </div>
+    </section>
 
-      <!-- Track 05 -->
-      <article class="track-card" data-track="5">
-        <div class="track-card__front" role="button" tabindex="0" aria-expanded="false">
-          <span class="track-card__number">05</span>
-          <div class="track-card__info">
-            <p class="track-card__song">《说谎的木偶》</p>
-            <p class="track-card__theme">伪装与真实,谎言也是这个世界的一部分</p>
+    <!-- Track 05 -->
+    <section class="track-section" id="track-5" data-track="5">
+      <span class="track-number-bg">05</span>
+      <div class="track-spread">
+        <div class="track-meta">
+          <span class="track-section-num">Track 05</span>
+          <h3 class="track-section-title"><span class="track-song-name">《说谎的木偶》</span></h3>
+          <p class="track-section-theme">伪装与真实, 社交面具的代价</p>
+          
+          <div class="track-indicator">
+            <span class="pulse-dot"></span>
+            <span class="indicator-text" data-i18n="nowPlaying">正在阅读与收听</span>
           </div>
-          <span class="track-card__toggle">＋</span>
+
+          <div class="track-links">
+            <span class="links-label" data-i18n="listenLabel">🔗 在其他平台收听</span>
+            <div class="links-row">
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">Spotify</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">Apple Music</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">YouTube Music</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">网易云</a>
+            </div>
+          </div>
         </div>
-        <div class="track-card__detail" hidden>
-          <div class="track-card__links">
-            <span class="track-card__links-label">🔗 在其他平台收听</span>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--spotify">Spotify</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--apple">Apple Music</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--youtube">YouTube Music</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--netease">网易云音乐</a>
-          </div>
-          <div class="track-card__lyrics"><h4>歌词</h4><pre>
-[Verse 1]
+        
+        <div class="track-lyrics-col">
+          <pre>[Verse 1]
 左手拉起　僵硬的致意
 右手放下　谦卑的卑辞
 在这场　永不谢幕的　社交博弈
@@ -460,46 +441,38 @@
 [Outro]
 我说的...全是真话...
 看啊...我的鼻子...
-它怎么...还没...停下...</pre></div>
-          <div class="track-card__interact"><h4>💬 互动：这首歌唱的是谁？</h4>
-            <form class="interact-form" data-track-name="05 说谎的木偶">
-              <div class="interact-form__left">
-                <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
-                <label>为什么？<textarea name="why" placeholder="说说你的理由…"></textarea></label>
-              </div>
-              <div class="interact-form__right">
-                <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" placeholder="如果愿意，写下来…"></textarea></label>
-              </div>
-              <div class="interact-form__btn-wrap">
-                <button type="submit" class="btn btn--small">提交</button>
-                <span class="interact-form__status-tag" hidden>已保存到本地星图 🌌</span>
-                <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
-              </div>
-            </form>
-          </div>
+它怎么...还没...停下...</pre>
         </div>
-      </article>
+      </div>
+    </section>
 
-      <!-- Track 06 -->
-      <article class="track-card" data-track="6">
-        <div class="track-card__front" role="button" tabindex="0" aria-expanded="false">
-          <span class="track-card__number">06</span>
-          <div class="track-card__info">
-            <p class="track-card__song">《森林》</p>
-            <p class="track-card__theme">告别天真，学会长大</p>
+    <!-- Track 06 -->
+    <section class="track-section" id="track-6" data-track="6">
+      <span class="track-number-bg">06</span>
+      <div class="track-spread">
+        <div class="track-meta">
+          <span class="track-section-num">Track 06</span>
+          <h3 class="track-section-title"><span class="track-song-name">《森林》</span></h3>
+          <p class="track-section-theme">告别天真，学会长大</p>
+          
+          <div class="track-indicator">
+            <span class="pulse-dot"></span>
+            <span class="indicator-text" data-i18n="nowPlaying">正在阅读与收听</span>
           </div>
-          <span class="track-card__toggle">＋</span>
+
+          <div class="track-links">
+            <span class="links-label" data-i18n="listenLabel">🔗 在其他平台收听</span>
+            <div class="links-row">
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">Spotify</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">Apple Music</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">YouTube Music</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">网易云</a>
+            </div>
+          </div>
         </div>
-        <div class="track-card__detail" hidden>
-          <div class="track-card__links">
-            <span class="track-card__links-label">🔗 在其他平台收听</span>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--spotify">Spotify</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--apple">Apple Music</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--youtube">YouTube Music</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--netease">网易云音乐</a>
-          </div>
-          <div class="track-card__lyrics"><h4>歌词</h4><pre>
-[Verse 1]
+        
+        <div class="track-lyrics-col">
+          <pre>[Verse 1]
 妈妈说　别离开　铺满碎石的大路
 篮子里　装着温热的　善意与满足
 我披着　最鲜艳的　那一抹红
@@ -546,60 +519,48 @@
 
 [Outro]
 森林深处... 没有外婆...
-只有... 长大的... 我。</pre></div>
-          <div class="track-card__interact"><h4>💬 互动：这首歌唱的是谁？</h4>
-            <form class="interact-form" data-track-name="06 森林">
-              <div class="interact-form__left">
-                <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
-                <label>为什么？<textarea name="why" placeholder="说说你的理由…"></textarea></label>
-              </div>
-              <div class="interact-form__right">
-                <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" placeholder="如果愿意，写下来…"></textarea></label>
-              </div>
-              <div class="interact-form__btn-wrap">
-                <button type="submit" class="btn btn--small">提交</button>
-                <span class="interact-form__status-tag" hidden>已保存到本地星图 🌌</span>
-                <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
-              </div>
-            </form>
-          </div>
+只有... 长大的... 我。</pre>
         </div>
-      </article>
-    </div><!-- /act 2 -->
-
-    <!-- ===== 第三幕：觉醒 ===== -->
-    <div class="act" data-act="3">
-      <div class="act__header">
-        <span class="act__number">第三幕</span>
-        <h2 class="act__title" data-i18n="act3Title">觉醒</h2>
-        <p class="act__subtitle">Tracks 7 – 9</p>
       </div>
+    </section>
 
-      <!-- Track 07 -->
-      <article class="track-card" data-track="7">
-        <div class="track-card__front" role="button" tabindex="0" aria-expanded="false">
-          <span class="track-card__number">07</span>
-          <div class="track-card__info">
-            <p class="track-card__song">《沉睡的时间》</p>
-            <p class="track-card__theme">等待与沉淀，时间给出的答案</p>
+    <!-- ===== Act 3 Divider ===== -->
+    <div class="act-separator" id="act-3">
+      <span class="act-separator__number" data-i18n="act3Num">Act III</span>
+      <h2 class="act-separator__title" data-i18n="act3Title">觉醒</h2>
+      <p class="act-separator__subtitle" data-i18n="act3Subtitle">第三幕 / Awakening</p>
+    </div>
+
+    <!-- Track 07 -->
+    <section class="track-section" id="track-7" data-track="7">
+      <span class="track-number-bg">07</span>
+      <div class="track-spread">
+        <div class="track-meta">
+          <span class="track-section-num">Track 07</span>
+          <h3 class="track-section-title"><span class="track-song-name">《沉睡的时间》</span></h3>
+          <p class="track-section-theme">等待与沉淀，时间给出的答案</p>
+          
+          <div class="track-indicator">
+            <span class="pulse-dot"></span>
+            <span class="indicator-text" data-i18n="nowPlaying">正在阅读与收听</span>
           </div>
-          <span class="track-card__toggle">＋</span>
+
+          <div class="track-links">
+            <span class="links-label" data-i18n="listenLabel">🔗 在其他平台收听</span>
+            <div class="links-row">
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">Spotify</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">Apple Music</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">YouTube Music</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">网易云</a>
+            </div>
+          </div>
         </div>
-        <div class="track-card__detail" hidden>
-          <div class="track-card__links">
-            <span class="track-card__links-label">🔗 在其他平台收听</span>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--spotify">Spotify</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--apple">Apple Music</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--youtube">YouTube Music</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--netease">网易云音乐</a>
-          </div>
-          <div class="track-card__lyrics"><h4>歌词</h4><pre>
-[Verse 1]
+        
+        <div class="track-lyrics-col">
+          <pre>[Verse 1]
 月光在 旧衣角 缓慢地 挪动位子
 从蔷薇的 尖刺 爬上 紧闭的 眼眶
-
 一百年…… 很长吗？
-
 不过是 宇宙 漫不经心地 眨了一次眼
 我听见 城堡外的 枯叶 堆叠成 传说
 
@@ -607,7 +568,7 @@
 他们 步履匆匆 想要 抓牢 每一个 结果
 在 还没播种的 时候 就急着 渴望 收获
 但我 锁住了 所有的 门窗
-把自己 酿成 一罐 琥珀里的 苍凉
+把自己 酿成 一罐—— 琥珀里的 苍凉
 看 那些 所谓的 执念 最终 变得 荒凉
 
 [Section 3]
@@ -634,47 +595,38 @@
 万物 沉淀
 不需要 寻找
 只需……
-等它
-出现</pre></div>
-          <div class="track-card__interact"><h4>💬 互动：这首歌唱的是谁？</h4>
-            <form class="interact-form" data-track-name="07 沉睡的时间">
-              <div class="interact-form__left">
-                <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
-                <label>为什么？<textarea name="why" placeholder="说说你的理由…"></textarea></label>
-              </div>
-              <div class="interact-form__right">
-                <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" placeholder="如果愿意，写下来…"></textarea></label>
-              </div>
-              <div class="interact-form__btn-wrap">
-                <button type="submit" class="btn btn--small">提交</button>
-                <span class="interact-form__status-tag" hidden>已保存到本地星图 🌌</span>
-                <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
-              </div>
-            </form>
-          </div>
+等它 出现</pre>
         </div>
-      </article>
+      </div>
+    </section>
 
-      <!-- Track 08 -->
-      <article class="track-card" data-track="8">
-        <div class="track-card__front" role="button" tabindex="0" aria-expanded="false">
-          <span class="track-card__number">08</span>
-          <div class="track-card__info">
-            <p class="track-card__song">《编号B-612的告别》</p>
-            <p class="track-card__theme">爱与责任，用心看见真实</p>
+    <!-- Track 08 -->
+    <section class="track-section" id="track-8" data-track="8">
+      <span class="track-number-bg">08</span>
+      <div class="track-spread">
+        <div class="track-meta">
+          <span class="track-section-num">Track 08</span>
+          <h3 class="track-section-title"><span class="track-song-name">《编号B-612的告别》</span></h3>
+          <p class="track-section-theme">爱与责任，用心看见真实</p>
+          
+          <div class="track-indicator">
+            <span class="pulse-dot"></span>
+            <span class="indicator-text" data-i18n="nowPlaying">正在阅读与收听</span>
           </div>
-          <span class="track-card__toggle">＋</span>
+
+          <div class="track-links">
+            <span class="links-label" data-i18n="listenLabel">🔗 在其他平台收听</span>
+            <div class="links-row">
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">Spotify</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">Apple Music</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">YouTube Music</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">网易云</a>
+            </div>
+          </div>
         </div>
-        <div class="track-card__detail" hidden>
-          <div class="track-card__links">
-            <span class="track-card__links-label">🔗 在其他平台收听</span>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--spotify">Spotify</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--apple">Apple Music</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--youtube">YouTube Music</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--netease">网易云音乐</a>
-          </div>
-          <div class="track-card__lyrics"><h4>歌词</h4><pre>
-[Verse 1]
+        
+        <div class="track-lyrics-col">
+          <pre>[Verse 1]
 我的星球 只有 三座火山的大小
 我细心 拔掉 猴面包树的幼苗
 直到那天 你的 红色花苞 慢慢破晓
@@ -717,46 +669,38 @@
 那是 你的 铃声 还是 你的 泪水？
 我听见 漫天的 星星 在笑……
 B six twelve……
-在那儿 等我……</pre></div>
-          <div class="track-card__interact"><h4>💬 互动：这首歌唱的是谁？</h4>
-            <form class="interact-form" data-track-name="08 编号B-612的告别">
-              <div class="interact-form__left">
-                <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
-                <label>为什么？<textarea name="why" placeholder="说说你的理由…"></textarea></label>
-              </div>
-              <div class="interact-form__right">
-                <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" placeholder="如果愿意，写下来…"></textarea></label>
-              </div>
-              <div class="interact-form__btn-wrap">
-                <button type="submit" class="btn btn--small">提交</button>
-                <span class="interact-form__status-tag" hidden>已保存到本地星图 🌌</span>
-                <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
-              </div>
-            </form>
-          </div>
+在那儿 等我……</pre>
         </div>
-      </article>
+      </div>
+    </section>
 
-      <!-- Track 09 -->
-      <article class="track-card" data-track="9">
-        <div class="track-card__front" role="button" tabindex="0" aria-expanded="false">
-          <span class="track-card__number">09</span>
-          <div class="track-card__info">
-            <p class="track-card__song">《声音》</p>
-            <p class="track-card__theme">交换与代价，残缺中的觉醒</p>
+    <!-- Track 09 -->
+    <section class="track-section" id="track-9" data-track="9">
+      <span class="track-number-bg">09</span>
+      <div class="track-spread">
+        <div class="track-meta">
+          <span class="track-section-num">Track 09</span>
+          <h3 class="track-section-title"><span class="track-song-name">《声音》</span></h3>
+          <p class="track-section-theme">交换与代价，残缺中的觉醒</p>
+          
+          <div class="track-indicator">
+            <span class="pulse-dot"></span>
+            <span class="indicator-text" data-i18n="nowPlaying">正在阅读与收听</span>
           </div>
-          <span class="track-card__toggle">＋</span>
+
+          <div class="track-links">
+            <span class="links-label" data-i18n="listenLabel">🔗 在其他平台收听</span>
+            <div class="links-row">
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">Spotify</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">Apple Music</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">YouTube Music</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">网易云</a>
+            </div>
+          </div>
         </div>
-        <div class="track-card__detail" hidden>
-          <div class="track-card__links">
-            <span class="track-card__links-label">🔗 在其他平台收听</span>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--spotify">Spotify</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--apple">Apple Music</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--youtube">YouTube Music</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--netease">网易云音乐</a>
-          </div>
-          <div class="track-card__lyrics"><h4>歌词</h4><pre>
-[Verse 1]
+        
+        <div class="track-lyrics-col">
+          <pre>[Verse 1]
 我曾拥有　整座海洋最嫉妒的　喉咙
 能让风暴　停在半空　让月色　变得浓稠
 那是　一种不需要双脚　也能飞翔的　自由
@@ -794,57 +738,49 @@ B six twelve……
 
 [Outro]
 我失去了...我的声音...
-但我听见了... 我的...灵魂。</pre></div>
-          <div class="track-card__interact"><h4>💬 互动：这首歌唱的是谁？</h4>
-            <form class="interact-form" data-track-name="09 声音">
-              <div class="interact-form__left">
-                <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
-                <label>为什么？<textarea name="why" placeholder="说说你的理由…"></textarea></label>
-              </div>
-              <div class="interact-form__right">
-                <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" placeholder="如果愿意，写下来…"></textarea></label>
-              </div>
-              <div class="interact-form__btn-wrap">
-                <button type="submit" class="btn btn--small">提交</button>
-                <span class="interact-form__status-tag" hidden>已保存到本地星图 🌌</span>
-                <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
-              </div>
-            </form>
-          </div>
+但我听见了... 我的...灵魂。</pre>
         </div>
-      </article>
-    </div><!-- /act 3 -->
-
-    <!-- ===== 第四幕：回归 ===== -->
-    <div class="act" data-act="4">
-      <div class="act__header">
-        <span class="act__number">第四幕</span>
-        <h2 class="act__title" data-i18n="act4Title">回归</h2>
-        <p class="act__subtitle">Tracks 10 – 12</p>
       </div>
+    </section>
 
-      <!-- Track 10 -->
-      <article class="track-card" data-track="10">
-        <div class="track-card__front" role="button" tabindex="0" aria-expanded="false">
-          <span class="track-card__number">10</span>
-          <div class="track-card__info">
-            <p class="track-card__song">《魔法师》</p>
-            <p class="track-card__theme">权威的幻觉，神坛来自恐惧与投射</p>
+    <!-- ===== Act 4 Divider ===== -->
+    <div class="act-separator" id="act-4">
+      <span class="act-separator__number" data-i18n="act4Num">Act IV</span>
+      <h2 class="act-separator__title" data-i18n="act4Title">回归</h2>
+      <p class="act-separator__subtitle" data-i18n="act4Subtitle">第四幕 / Return</p>
+    </div>
+
+    <!-- Track 10 -->
+    <section class="track-section" id="track-10" data-track="10">
+      <span class="track-number-bg">10</span>
+      <div class="track-spread">
+        <div class="track-meta">
+          <span class="track-section-num">Track 10</span>
+          <h3 class="track-section-title"><span class="track-song-name">《魔法师》</span></h3>
+          <p class="track-section-theme">权威的幻觉，神坛来自恐惧与投射</p>
+          
+          <div class="track-indicator">
+            <span class="pulse-dot"></span>
+            <span class="indicator-text" data-i18n="nowPlaying">正在阅读与收听</span>
           </div>
-          <span class="track-card__toggle">＋</span>
+
+          <div class="track-links">
+            <span class="links-label" data-i18n="listenLabel">🔗 在其他平台收听</span>
+            <div class="links-row">
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">Spotify</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">Apple Music</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">YouTube Music</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">网易云</a>
+            </div>
+          </div>
         </div>
-        <div class="track-card__detail" hidden>
-          <div class="track-card__links">
-            <span class="track-card__links-label">🔗 在其他平台收听</span>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--spotify">Spotify</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--apple">Apple Music</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--youtube">YouTube Music</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--netease">网易云音乐</a>
-          </div>
-          <div class="track-card__lyrics"><h4>歌词</h4><pre>
+        
+        <div class="track-lyrics-col">
+          <pre>(Intro: 留声机沙沙的底噪，一段略显滑稽且失真的小号，像是马戏团谢幕后的余音)
+
 (Verse 1)
 巨大的　面具　悬浮在　绿色的　浓烟
-雷鸣声　震慑着　每个　朝圣的　少年
+雷鸣声　震慑着　每个　朝朝的　少年
 你说　你手握　星辰　与　永恒的　主权
 能赐予　稻草人　智慧　让　狮子　不再　失眠
 所有人　都在　这屏障前　跪成了　一个　圆
@@ -887,45 +823,40 @@ B six twelve……
 嘘...
 看啊。
 帘子后面...
-空无一物。</pre></div>
-          <div class="track-card__interact"><h4>💬 互动：这首歌唱的是谁？</h4>
-            <form class="interact-form" data-track-name="10 魔法师">
-              <div class="interact-form__left">
-                <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
-                <label>为什么？<textarea name="why" placeholder="说说你的理由…"></textarea></label>
-              </div>
-              <div class="interact-form__right">
-                <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" placeholder="如果愿意，写下来…"></textarea></label>
-              </div>
-              <div class="interact-form__btn-wrap">
-                <button type="submit" class="btn btn--small">提交</button>
-                <span class="interact-form__status-tag" hidden>已保存到本地星图 🌌</span>
-                <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
-              </div>
-            </form>
-          </div>
+空无一物。</pre>
         </div>
-      </article>
+      </div>
+    </section>
 
-      <!-- Track 11 -->
-      <article class="track-card" data-track="11">
-        <div class="track-card__front" role="button" tabindex="0" aria-expanded="false">
-          <span class="track-card__number">11</span>
-          <div class="track-card__info">
-            <p class="track-card__song">《回家的路》</p>
-            <p class="track-card__theme">归属不是地点，而是回到自己</p>
+    <!-- Track 11 -->
+    <section class="track-section" id="track-11" data-track="11">
+      <span class="track-number-bg">11</span>
+      <div class="track-spread">
+        <div class="track-meta">
+          <span class="track-section-num">Track 11</span>
+          <h3 class="track-section-title"><span class="track-song-name">《回家的路》</span></h3>
+          <p class="track-section-theme">归属不是地点，而是回到自己</p>
+          
+          <div class="track-indicator">
+            <span class="pulse-dot"></span>
+            <span class="indicator-text" data-i18n="nowPlaying">正在阅读与收听</span>
           </div>
-          <span class="track-card__toggle">＋</span>
+
+          <div class="track-links">
+            <span class="links-label" data-i18n="listenLabel">🔗 在其他平台收听</span>
+            <div class="links-row">
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">Spotify</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">Apple Music</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">YouTube Music</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">网易云</a>
+            </div>
+          </div>
         </div>
-        <div class="track-card__detail" hidden>
-          <div class="track-card__links">
-            <span class="track-card__links-label">🔗 在其他平台收听</span>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--spotify">Spotify</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--apple">Apple Music</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--youtube">YouTube Music</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--netease">网易云音乐</a>
-          </div>
-          <div class="track-card__lyrics"><h4>歌词</h4><pre>
+        
+        <div class="track-lyrics-col">
+          <pre>[Intro]
+(温暖的木吉他扫弦，伴随走在落叶上的清脆脚步声，环境音宽阔而真实)
+
 [Verse 1]
 脱掉了　那双　磨破了的　红舞鞋
 抖落了　满身　奥兹国的　灰与雪
@@ -955,7 +886,7 @@ B six twelve……
 
 [Bridge]
 回家的路　终于有了名字
-叫做我愿意　我可以　从此
+叫做我愿意     我可以   从此
 回家的路　不需要奇迹
 当我不再逃离　每一步都算抵达
 
@@ -967,114 +898,67 @@ B six twelve……
 原来　这里　才是　我　唯一的　圣库
 
 [Outro]
-咔哒——
-"我回来了。"</pre></div>
-          <div class="track-card__interact"><h4>💬 互动：这首歌唱的是谁？</h4>
-            <form class="interact-form" data-track-name="11 回家的路">
-              <div class="interact-form__left">
-                <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
-                <label>为什么？<textarea name="why" placeholder="说说你的理由…"></textarea></label>
-              </div>
-              <div class="interact-form__right">
-                <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" placeholder="如果愿意，写下来…"></textarea></label>
-              </div>
-              <div class="interact-form__btn-wrap">
-                <button type="submit" class="btn btn--small">提交</button>
-                <span class="interact-form__status-tag" hidden>已保存到本地星图 🌌</span>
-                <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
-              </div>
-            </form>
-          </div>
+“我回来了。”</pre>
         </div>
-      </article>
+      </div>
+    </section>
 
-      <!-- Track 12 -->
-      <article class="track-card" data-track="12">
-        <div class="track-card__front" role="button" tabindex="0" aria-expanded="false">
-          <span class="track-card__number">12</span>
-          <div class="track-card__info">
-            <p class="track-card__song">《我们》</p>
-            <p class="track-card__theme">人格整合的终章：所有分身在"我们"里和解</p>
+    <!-- Track 12 -->
+    <section class="track-section" id="track-12" data-track="12">
+      <span class="track-number-bg">12</span>
+      <div class="track-spread">
+        <div class="track-meta">
+          <span class="track-section-num">Track 12</span>
+          <h3 class="track-section-title"><span class="track-song-name">《我们》</span></h3>
+          <p class="track-section-theme">人格整合的终章：和解与重逢</p>
+          
+          <div class="track-indicator">
+            <span class="pulse-dot"></span>
+            <span class="indicator-text" data-i18n="nowPlaying">正在阅读与收听</span>
           </div>
-          <span class="track-card__toggle">＋</span>
+
+          <div class="track-links">
+            <span class="links-label" data-i18n="listenLabel">🔗 在其他平台收听</span>
+            <div class="links-row">
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">Spotify</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">Apple Music</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">YouTube Music</a>
+              <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener">网易云</a>
+            </div>
+          </div>
         </div>
-        <div class="track-card__detail" hidden>
-          <div class="track-card__links">
-            <span class="track-card__links-label">🔗 在其他平台收听</span>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--spotify">Spotify</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--apple">Apple Music</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--youtube">YouTube Music</a>
-            <a href="https://distrokid.com/hyperfollow/lucazhou/ci-ke-zheng-hao" target="_blank" rel="noopener" class="platform-link platform-link--netease">网易云音乐</a>
-          </div>
-          <div class="track-card__lyrics"><h4>歌词</h4><pre>
+        
+        <div class="track-lyrics-col">
+          <pre>[Intro]
+(极简的钢琴单音，像水滴落在寂静的深潭，伴随轻微的、来自星际的脉冲回声)
+
 [Verse 1]
-我们在　干枯的　荒草里　寻找　逻辑
-在　生锈的　胸膛里　听见　潮汐
-在　战栗的　鬃毛下　藏好　秘密
-原来　所有的　缺失　都是　为了　相遇
-在这个　荒诞的　宇宙里　补全　证据
-
-[Verse 2]
-我们　跳进过　兔子洞　也　吻过　荆棘
-在　破碎的　玻璃罩　学会　珍惜
-在　魔法师　的　帘子后　拆穿　演艺
-那些　走过的　弯路　其实　从未　偏离
-每一步　都在　绘制　自己的　真理
-
-[Pre-Chorus]
-每一个　童话角色　都是　一个　分身
-在　自我的　迷宫里　不断　转身
-直到　所有的　裂纹　都　长成了　年轮
-我们　才　听见了　那声　最终的　开门
+我把 所有的 疑问 都 倒进 炉火
+看着 它们 烧成 灰烬 和 沉默
+那个 站在 麦田 守望的 稻草人
+那个 穿着 铁甲 哭泣的 铁皮人
+他们 都在 这一刻 找到了 归属 的 门
 
 [Chorus]
-原来　我们　就是　童话的　本身
-是　清醒的　疯子　也是　勇敢的　凡人
-不需要　去　远方　乞讨　智慧　与　灵魂
-我们　的　血肉里　本就　住着　众神
-爱　与　恐惧　都是　生命　的　初吻
-
-[Bridge]
-填充　胸膛的　那团　荒草（那是　我的　好奇）
-刻在　关节的　那层　铁锈（那是　我的　隐忍）
-驯服　旷野中　那声　战栗（那是　我的　真实）
-亲吻　归途上　那串　脚印（那是　我的　归依）
-
-[Final Chorus]
-我们　就是　这个　宇宙的　寓言
-是　正在　书写的　永恒　诗篇
-不再　逃离　不再　表演　不再　亏欠
-每一个　当下　都是　回家的　终点
-我们　就是　那个　从未　丢失的　乐园
+这就是 我们
+无数个 破碎的 灵魂
+拼凑出 的 完整 镜像 与 证据
+不要 害怕 黑暗 中的 哭声 与 废墟
+因为 每一颗 星辰 都在 见证 我们的 重逢 与 凝聚
+我们 就是 这一场 荒谬 宇宙 的 唯一 证据
 
 [Outro]
-嘘...
-故事　结束了。
-我们...
-开始了。</pre></div>
-          <div class="track-card__interact"><h4>💬 互动：这首歌唱的是谁？</h4>
-            <form class="interact-form" data-track-name="12 我们">
-              <div class="interact-form__left">
-                <label>你觉得这首歌唱的是谁？<input type="text" name="who" placeholder="你的答案…" required /></label>
-                <label>为什么？<textarea name="why" placeholder="说说你的理由…"></textarea></label>
-              </div>
-              <div class="interact-form__right">
-                <label>你在这首歌里看见了自己的哪一部分？<textarea name="self" placeholder="如果愿意，写下来…"></textarea></label>
-              </div>
-              <div class="interact-form__btn-wrap">
-                <button type="submit" class="btn btn--small">提交</button>
-                <span class="interact-form__status-tag" hidden>已保存到本地星图 🌌</span>
-                <div class="interact-form__thanks" hidden>谢谢你的分享 ✨</div>
-              </div>
-            </form>
-          </div>
+(管弦乐渐弱，回归极简钢琴)
+所有的 分身……
+都在 这片 星空下……
+重逢。</pre>
         </div>
-      </article>
-    </div><!-- /act 4 -->
+      </div>
+    </section>
 
   </section><!-- /tracklist -->
 
-  <!-- ========== 星光灵魂地图 & 人格卡片生成器 ========== -->
+  <!-- ========== 星光灵魂地图 & 人格卡片生成器 (Epilogue) ========== -->
   <section class="soul-map" id="soulMapSection">
     <div class="soul-map__inner">
       <h2 class="soul-map__title" data-i18n="soulMapTitle">星光灵魂地图</h2>
@@ -1083,7 +967,7 @@ B six twelve……
         <canvas id="soulCanvas"></canvas>
       </div>
       <div class="soul-map__actions">
-        <button class="btn btn--primary btn--disabled" id="generateCardBtn" disabled><span data-i18n="generateBtnText">生成专属人格卡</span></button>
+        <button class="btn btn--primary" id="generateCardBtn"><span data-i18n="generateBtnText">生成专属人格卡</span></button>
       </div>
       <div class="soul-map__result" id="cardResultWrap" hidden>
         <canvas id="posterCanvas" width="600" height="900" style="display: none;"></canvas>
@@ -1098,8 +982,8 @@ B six twelve……
   <!-- ========== 订阅 & 信息收集 ========== -->
   <section id="subscribe" class="subscribe">
     <div class="subscribe__inner">
-      <h2 class="subscribe__title">加入我们的故事</h2>
-      <p class="subscribe__desc">留下你的联系方式，第一时间获取专辑动态、演出信息与幕后故事。</p>
+      <h2 class="subscribe__title" data-i18n="subscribeTitle">加入我们的故事</h2>
+      <p class="subscribe__desc" data-i18n="subscribeDesc">留下你的联系方式，第一时间获取专辑动态、演出信息与幕后故事。</p>
       <form class="subscribe__form" id="subscribeForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
         <input type="text" name="nickname" placeholder="你的昵称" data-i18n-placeholder="nicknamePlaceholder" required />
         <input type="email" name="email" placeholder="你的邮箱" data-i18n-placeholder="emailPlaceholder" required />
@@ -1119,9 +1003,8 @@ B six twelve……
         <a href="#" class="footer__social" target="_blank" rel="noopener">Instagram</a>
         <a href="#" class="footer__social" target="_blank" rel="noopener">微信</a>
       </div>
-      <p class="footer__copy">&copy; 2025 童话里的我们 · The Us In Fairytales</p>
+      <p class="footer__copy">&copy; 2026 童话里的我们 · The Us In Fairytales</p>
       <p class="footer__credits">音乐已通过 DistroKid 发行，可在 Spotify、Apple Music、YouTube Music 等平台收听。</p>
-      <p class="footer__netease">网易云音乐 · 即将上线</p>
     </div>
   </footer>
 
