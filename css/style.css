@@ -1848,3 +1848,75 @@ body {
 .track-section.active .track-number-bg {
   color: rgba(var(--theme-color-rgb), 0.035) !important;
 }
+
+/* ========== EDITORIAL TYPOGRAPHY & LAYOUT UPGRADES ========== */
+
+/* Update column spreads to asymmetric 1:1.6 layout, top-aligned */
+.track-spread {
+  gap: 8vw !important;
+  align-items: flex-start !important; /* Classic book top alignment */
+}
+
+.track-meta {
+  flex: 1 !important;
+}
+
+.track-lyrics-col {
+  flex: 1.65 !important; /* Prominent lyrics column */
+}
+
+/* Typographic Watermark Position Adjustment */
+.track-number-bg {
+  top: 8% !important;
+  transform: none !important;
+  font-size: 34rem !important;
+}
+
+/* Fairytale Archetype small labels */
+.track-archetype {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--theme-color);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  opacity: 0.9;
+  transition: color 0.5s ease;
+}
+
+/* Beautiful dynamic lyric annotations (No brackets, styled elegantly) */
+.lyric-cue {
+  display: block;
+  font-family: var(--font-english) !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.22em !important;
+  color: var(--theme-color) !important;
+  margin-top: 2rem !important;
+  margin-bottom: 0.6rem !important;
+  opacity: 0.85;
+  border-bottom: 1px solid rgba(var(--theme-color-rgb), 0.15);
+  padding-bottom: 0.25rem;
+  max-width: fit-content;
+}
+
+.lyric-annotation {
+  display: block;
+  font-family: var(--font-chinese) !important;
+  font-size: 0.88rem !important;
+  font-style: italic !important;
+  color: var(--text-dim) !important;
+  margin-top: 1.2rem !important;
+  margin-bottom: 0.6rem !important;
+  opacity: 0.65;
+  letter-spacing: 0.05em;
+}
+
+/* Add a line-height fix for the lyric sheets in book layout */
+.track-lyrics-col pre {
+  line-height: 2.2 !important;
+  letter-spacing: 0.08em !important;
+}

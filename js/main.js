@@ -1,6 +1,6 @@
 /**
  * 童话里的我们 / A Fairytale Called Us — Main JavaScript (Editorial Magazine Edition)
- * 功能：星光粒子 · 3D 封面 · 滚动足迹记录 · 点击式后台播放 (Click to Play/Pause) · 浮动星图雷达导航 · 双语化 (CN/EN) · 杂志海报 Canvas 导出
+ * 功能：星光粒子 · 3D 封面 · 滚动足迹记录 · 点击式后台播放 · 浮动星图雷达导航 · 双语化 (CN/EN) · 杂志海报 Canvas 导出
  */
 
 /* ==========================================================================
@@ -159,6 +159,20 @@ const TRANSLATIONS = {
     subscribeThanks: "感谢你的关注！我们会在童话的下一章与你相见 ✨",
     mapUs: "我们",
     
+    // 角色分身标签
+    arch1: "稻草人 ｜ Scarecrow",
+    arch2: "铁皮人 ｜ Tin Woodman",
+    arch3: "胆小狮子 ｜ Cowardly Lion",
+    arch4: "爱丽丝 ｜ Alice",
+    arch5: "匹诺曹 ｜ Pinocchio",
+    arch6: "小红帽 ｜ Little Red Riding Hood",
+    arch7: "睡美人 ｜ Sleeping Beauty",
+    arch8: "小王子 ｜ The Little Prince",
+    arch9: "人鱼公主 ｜ Little Mermaid",
+    arch10: "奥兹 ｜ Wizard of Oz",
+    arch11: "多萝西 ｜ Dorothy",
+    arch12: "我们 ｜ Us",
+
     archetypes: [
       { id: 1, name: "稻草人", song: "我没有大脑", quote: "“我不想要什么大脑，如果它只会制造烦恼。可我为何，感到了思考？”" },
       { id: 2, name: "铁皮人", song: "生锈的心", quote: "“我有一颗生锈的心，它跳动时有刺耳的声音。但当你在人群中叫我，它开始剧烈震颤。”" },
@@ -203,7 +217,7 @@ const TRANSLATIONS = {
     listenLabel: "🔗 Listen on other platforms",
     
     soulMapTitle: "Starlight Constellation Map",
-    soulMapDesc: "Your reading and listening footprint has lit up <span id='litCount'>0</span> / 12 nodes. Explore all sections to generate your 'Fairytale Poster Card' 🌟",
+    soulMapDesc: "Your footprint has lit up <span id='litCount'>0</span> / 12 nodes. Explore all sections to generate your 'Fairytale Poster Card' 🌟",
     generateBtnText: "Generate Fairytale Poster",
     posterTipText: "Long press or right-click to save your card 🌌",
     subscribeTitle: "Join Our Story",
@@ -215,6 +229,19 @@ const TRANSLATIONS = {
     subscribeThanks: "Thank you for subscribing! We will meet in the next chapter of the fairytale ✨",
     mapUs: "Us",
     
+    arch1: "Scarecrow",
+    arch2: "Tin Woodman",
+    arch3: "Cowardly Lion",
+    arch4: "Alice",
+    arch5: "Pinocchio",
+    arch6: "Little Red Riding Hood",
+    arch7: "Sleeping Beauty",
+    arch8: "The Little Prince",
+    arch9: "Little Mermaid",
+    arch10: "Wizard of Oz",
+    arch11: "Dorothy",
+    arch12: "Us",
+
     archetypes: [
       { id: 1, name: "Scarecrow", song: "The Hollow", quote: "“I don't want a brain if it only makes trouble. Yet why do I feel the echo of thought?”" },
       { id: 2, name: "Tin Woodman", song: "The Rust", quote: "“I have a rusty heart with a screeching beat. Yet when you call my name, it echoes deep.”" },
@@ -241,7 +268,19 @@ const TRANSLATIONS = {
 };
 
 /* ==========================================================================
-   4. 双语页面渲染逻辑与卡片数据切换
+   4. 歌词排版美化引擎：自动转化结构为金句斜体类标签
+   ========================================================================== */
+function formatLyrics(rawLyrics) {
+  let formatted = rawLyrics;
+  // 将 [...] 替换为 <span class="lyric-cue">...</span>
+  formatted = formatted.replace(/\[([\s\S]+?)\]/g, '<span class="lyric-cue">$1</span>');
+  // 将 (...) 替换为 <span class="lyric-annotation">...</span>
+  formatted = formatted.replace(/\(([\s\S]+?)\)/g, '<span class="lyric-annotation">$1</span>');
+  return formatted;
+}
+
+/* ==========================================================================
+   5. 双语页面渲染逻辑与卡片数据切换
    ========================================================================== */
 function setLanguage(lang) {
   currentLang = lang;
@@ -269,7 +308,7 @@ function setLanguage(lang) {
     }
   });
 
-  // 3. 动态刷新歌词版块名称与主题
+  // 3. 动态刷新歌词版块名称与主题 (带格式转换)
   if (typeof TRACKS_CONFIG !== 'undefined') {
     const tracksList = (lang === 'zh') ? TRACKS_CONFIG.tracks : TRACKS_CONFIG.tracks_en;
     
@@ -282,9 +321,12 @@ function setLanguage(lang) {
       const lyricsPre = section.querySelector('.track-lyrics-col pre');
       const linksLabel = section.querySelector('.links-label');
       
-      if (titleEl) titleEl.textContent = (lang === 'zh') ? `《${t.name}》` : t.name;
+      if (titleEl) titleEl.textContent = t.name;
       if (themeEl) themeEl.textContent = t.theme;
-      if (lyricsPre) lyricsPre.textContent = t.lyrics;
+      if (lyricsPre) {
+        // 使用 formatLyrics 格式化解析歌词
+        lyricsPre.innerHTML = formatLyrics(t.lyrics);
+      }
       if (linksLabel) linksLabel.textContent = tr.listenLabel;
     });
   }
@@ -314,7 +356,7 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
 });
 
 /* ==========================================================================
-   5. 浮动 Constellation 雷达星图展示控制
+   6. 浮动 Constellation 雷达星图展示控制
    ========================================================================== */
 const floatingRadar = document.getElementById('floatingRadar');
 if (floatingRadar) {
@@ -336,7 +378,7 @@ if (floatingRadar) {
 }
 
 /* ==========================================================================
-   6. 进度记录 (localStorage 足迹管理)
+   7. 进度记录 (localStorage 足迹管理)
    ========================================================================== */
 function loadLitTracks() {
   const key = `soul_explored_${currentLang}`;
@@ -382,7 +424,7 @@ function updateProgressUI() {
 }
 
 /* ==========================================================================
-   7. 滚动监听：仅做背景行高高亮与点亮星轨足迹 (Intersection Observer)
+   8. 滚动监听：仅做背景行高高亮与点亮星轨足迹 (Intersection Observer)
    ========================================================================== */
 (function initScrollObserver() {
   const sections = document.querySelectorAll('.track-section');
@@ -417,7 +459,7 @@ function updateProgressUI() {
 })();
 
 /* ==========================================================================
-   8. 点击切歌与收听控制 (Bespoke Play/Pause Toggles)
+   9. 点击切歌与收听控制 (Bespoke Play/Pause Toggles)
    ========================================================================== */
 let currentPlayingId = null;
 const hiddenPlayer = document.getElementById('hiddenPlayerContainer');
@@ -497,7 +539,7 @@ function updateIndicators() {
 }
 
 /* ==========================================================================
-   9. 绘制与控制 Constellation 星轨地图 (抽象连线与点击导航逻辑)
+   10. 绘制与控制 Constellation 星轨地图 (抽象连线与点击导航逻辑)
    ========================================================================== */
 
 function getConstellationCoords(cx, cy, r) {
@@ -689,7 +731,7 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ==========================================================================
-   10. 双语海报卡片 Canvas 生成器 (Poster Generator)
+   11. 双语海报卡片 Canvas 生成器 (Poster Generator)
    ========================================================================== */
 const generateCardBtn = document.getElementById('generateCardBtn');
 const cardResultWrap = document.getElementById('cardResultWrap');
@@ -897,7 +939,7 @@ function wrapText(context, text, x, y, maxWidth, lineHeight) {
 }
 
 /* ==========================================================================
-   11. 基础绑定与初始化
+   12. 基础绑定与初始化
    ========================================================================== */
 const scrollHint = document.getElementById('scrollHint');
 if (scrollHint) {
